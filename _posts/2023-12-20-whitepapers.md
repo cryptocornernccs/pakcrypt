@@ -1,11 +1,18 @@
 ---
 title:  "Whitepapers"
-date:   2026-02-17 07:22:34 +0500
+date:   2026-03-21 07:22:34 +0500
 categories: [whitepapers]
 tags: [Whitepapers, Knowledge]
 author: team-pakcrypt
 permalink: /wp/
 ---
+
+### Taxonomic Framework for Block Cipher Modes of Operation
+*2026-03-21*
+
+Hardware random number generators (HRNGs) underpin the security of cryptographic systems, yet their physical entropy sources are susceptible to degradation, environmental perturbation, and adversarial manipulation. Continuous health testing during operation is therefore mandated by all major certification frameworks, including NIST SP 800-90B and BSI AIS 31. Our paper examines the feasibility and efficiency of employing three classical statistical measures mean, median, and standard deviation as lightweight online health indicators for HRNG output streams. Read pre-print of our full submission here:
+[PDF]({{site.url}}/{{site.baseurl}}/assets/whitepapers/HTHRNG260322.pdf)
+
 
 ### Taxonomic Framework for Block Cipher Modes of Operation
 *2026-02-15*
