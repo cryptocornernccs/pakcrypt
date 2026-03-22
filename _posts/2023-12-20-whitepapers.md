@@ -7,7 +7,8 @@ author: team-pakcrypt
 permalink: /wp/
 ---
 
-### Taxonomic Framework for Block Cipher Modes of Operation
+### Efficient Online Computation of Health Tests for Entropy Sources
+as Continuous Health Tests
 *2026-03-21*
 
 Hardware random number generators (HRNGs) underpin the security of cryptographic systems, yet their physical entropy sources are susceptible to degradation, environmental perturbation, and adversarial manipulation. Continuous health testing during operation is therefore mandated by all major certification frameworks, including NIST SP 800-90B and BSI AIS 31. Our paper examines the feasibility and efficiency of employing three classical statistical measures mean, median, and standard deviation as lightweight online health indicators for HRNG output streams. Read pre-print of our full submission here:
