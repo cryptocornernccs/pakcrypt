@@ -1,11 +1,21 @@
 ---
 title:  "Crypt Pulse"
-date:   2026-02-15 07:22:34 +0500
+date:   2026-03-15 07:22:34 +0500
 categories: [CryptoPulse]
 tags: [Update, News]
 author: team-pakcrypt
 permalink: ./pulse
 ---
+
+## IETF TLS 1.3 Hybrid Key Exchange Standardization 
+The IETF draft-ietf-tls-hybrid-design reached maturity in March 2026, providing a standardized construction for hybrid key exchange in TLS 1.3. This specification enables the combination of traditional elliptic-curve Diffie-Hellman with post-quantum KEMs (like ML-KEM) to protect against "harvest now, decrypt later" attacks while maintaining backward compatibility. [TLS1.3](https://datatracker.ietf.org/doc/draft-ietf-tls-hybrid-design/)
+
+## NIST Selects HQC for Standardization 
+On March 11, 2025, NIST announced the selection of HQC (Hamming Quasi-Cyclic) for standardization as a code-based Key Encapsulation Mechanism, augmenting the post-quantum cryptography portfolio alongside lattice-based ML-KEM.
+This selection follows NIST's fourth round evaluation and provides
+a backup KEM based on different hardness assumptions (code-based vs. lattice-based)
+and complementary security profile. HQC offers straightforward security proofs and faster cryptographic operations than BIKE, though with larger key sizes
+[NIST](https://www.nist.gov/news-events/news/2025/03/nist-selects-hqc-fifth-algorithm-post-quantum-encryption)
 
 ## Fully homomorphic encryption without lattices
 Most practical leveled/FHE systems sit on lattices (LWE/RLWE) or related number-theoretic scaffolding, with fairly standardized engineering burdens (relinearization, modulus switching, circular-security discussions, etc.). An AFRICACRYPT 2025 [paper](https://link.springer.com/chapter/10.1007/978-3-031-97260-7_2)  makes a sharp pivot: it claims the first l-leveled homomorphic encryption schemes over composite groups (factoring-based), supporting both additive and multiplicative homomorphism-where prior composite-group work largely stayed partial (add-only or mult-only).
