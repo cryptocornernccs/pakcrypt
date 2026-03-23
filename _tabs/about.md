@@ -79,12 +79,12 @@ PakCrypt Society's objectives are grouped under three key themes:
   .team-card .name {
     font-weight: 700;
     font-size: 0.95rem;
-    color: #c6afaf;
+    color: #96d01a;
     margin: 0;
   }
   .team-card .role {
     font-size: 0.82rem;
-    color: #c1abab;
+    color: #9488ef;
     margin: 2px 0 0;
   }
   @media (max-width: 480px) {
