@@ -42,7 +42,6 @@ PakCrypt Society's objectives are grouped under three key themes:
 
 <span style="color: seagreen;"> **Scientific Exchange:** </span>  We organize annual cybersecurity meetings, conferences, and competitions for members and the wider cryptography community. We facilitate international training and networking opportunities to help members and the wider cyber community advance their knowledge and skills.
 
-![Meetus](.{{site.baseurl}}/assets/images/our_team.jpg)
 
 <style>
   .team-section {
@@ -54,7 +53,7 @@ PakCrypt Society's objectives are grouped under three key themes:
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: #111;
+    color: #e0d4d4;
   }
   .team-grid {
     display: grid;
@@ -75,17 +74,17 @@ PakCrypt Society's objectives are grouped under three key themes:
     border-radius: 12px;
     border: 2px solid #e0e0e0;
     margin-bottom: 0.75rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(230, 218, 218, 0.1);
   }
   .team-card .name {
     font-weight: 700;
     font-size: 0.95rem;
-    color: #111;
+    color: #c6afaf;
     margin: 0;
   }
   .team-card .role {
     font-size: 0.82rem;
-    color: #555;
+    color: #c1abab;
     margin: 2px 0 0;
   }
   @media (max-width: 480px) {
