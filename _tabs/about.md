@@ -44,4 +44,107 @@ PakCrypt Society's objectives are grouped under three key themes:
 
 ![Meetus](.{{site.baseurl}}/assets/images/our_team.jpg)
 
+<style>
+  .team-section {
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 900px;
+    margin: 2rem auto;
+  }
+  .team-section h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #111;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .team-card img {
+    width: 140px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .team-card .name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #111;
+    margin: 0;
+  }
+  .team-card .role {
+    font-size: 0.82rem;
+    color: #555;
+    margin: 2px 0 0;
+  }
+  @media (max-width: 480px) {
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<div class="team-section">
+
+  <h2>Meet our Team</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <img src="/assets/images/team/saeed-ullah.jpg" alt="Saeed Ullah">
+      <p class="name">Saeed Ullah</p>
+      <p class="role">Head of Marketing</p>
+    </div>
+    <div class="team-card">
+      <img src="/assets/images/team/naveed-aa.jpg" alt="Naveed A.A.">
+      <p class="name">Naveed A.A.</p>
+      <p class="role">COO</p>
+    </div>
+    <div class="team-card">
+      <img src="/assets/images/team/zubair-ansari.jpg" alt="Zubair Ansari">
+      <p class="name">Zubair Ansari</p>
+      <p class="role">CTO</p>
+    </div>
+    <div class="team-card">
+      <img src="/assets/images/team/sara-malik.jpg" alt="Sara Malik">
+      <p class="name">Sara Malik</p>
+      <p class="role">Head of ORP</p>
+    </div>
+  </div>
+
+  <h2>Advisors</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <img src="/assets/images/team/na-riaz.jpg" alt="Prof. N.A. Riaz">
+      <p class="name">Prof. N.A. Riaz</p>
+      <p class="role">Advisor</p>
+    </div>
+    <div class="team-card">
+      <img src="/assets/images/team/c-tunder.jpg" alt="Prof C. Tunder">
+      <p class="name">Prof C. Tunder</p>
+      <p class="role">Advisor</p>
+    </div>
+    <div class="team-card">
+      <img src="/assets/images/team/nadia-waheed.jpg" alt="Nadia Waheed">
+      <p class="name">Nadia Waheed</p>
+      <p class="role">Advisor</p>
+    </div>
+    <div class="team-card">
+      <img src="/assets/images/team/ji-won.jpg" alt="Ji Won">
+      <p class="name">Ji Won</p>
+      <p class="role">Advisor</p>
+    </div>
+  </div>
+
+</div>
+
 
