@@ -5,11 +5,7 @@ title: "History of Public Key Cryptography"
 
 # The People Behind Public Key Cryptography: A Comprehensive Chronological Survey
 
-## Executive Summary
-
-This survey traces the history of public key cryptography from its classified origins in the 1960s through the post-quantum era of today. The narrative is deliberately person-centered, focusing on the individuals who made groundbreaking discoveries, their backgrounds, education, and the contexts that shaped their contributions. The field represents one of the most remarkable stories in modern science—a revolution that transformed how humanity secures digital communication.
-
----
+This article traces the history of public key cryptography from its classified origins in the 1960s through the post-quantum era of today. The narrative is deliberately person-centered, focusing on the individuals who made groundbreaking discoveries, their backgrounds, education, and the contexts that shaped their contributions. The field represents one of the most remarkable stories in modern science—a revolution that transformed how humanity secures digital communication.
 
 ## Part I: The Secret Origins (1969-1975)
 
