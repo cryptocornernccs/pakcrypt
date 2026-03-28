@@ -9,7 +9,11 @@ permalink: /wp/
 
 ### Efficient Online Computation of Health Tests for Entropy Sources
 *2026-03-21*
+This survey traces the history of public key cryptography from its classified origins in the 1960s through the post-quantum era of today. The narrative is deliberately person-centered, focusing on the individuals who made groundbreaking discoveries, their backgrounds, education, and the contexts that shaped their contributions. The field represents one of the most remarkable stories in modern science—a revolution that transformed how humanity secures digital communication.
+[Full Article]({{site.url}}/{{site.baseurl}}/articles/public_key_history)
 
+### Efficient Online Computation of Health Tests for Entropy Sources
+*2026-03-21*
 Hardware random number generators (HRNGs) underpin the security of cryptographic systems, yet their physical entropy sources are susceptible to degradation, environmental perturbation, and adversarial manipulation. Continuous health testing during operation is therefore mandated by all major certification frameworks, including NIST SP 800-90B and BSI AIS 31. Our paper examines the feasibility and efficiency of employing three classical statistical measures mean, median, and standard deviation as lightweight online health indicators for HRNG output streams. Read pre-print of our full submission here:
 [PDF]({{site.url}}/{{site.baseurl}}/assets/whitepapers/HTHRNG260322.pdf)
 
