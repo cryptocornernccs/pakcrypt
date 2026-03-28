@@ -688,4 +688,4 @@ The people profiled in this survey have fundamentally changed how humanity secur
 
 ---
 
-*This survey was compiled to provide a comprehensive, person-centered history of public key cryptography. The field continues to evolve, with new discoveries and new researchers building on these foundational contributions.*
+*This article was compiled to provide a comprehensive, person-centered history of public key cryptography. The field continues to evolve, with new discoveries and new researchers building on these foundational contributions.*
