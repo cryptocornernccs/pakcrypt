@@ -7,10 +7,10 @@ author: team-pakcrypt
 permalink: /wp/
 ---
 
-### Efficient Online Computation of Health Tests for Entropy Sources
+### History of Public Key Cryptography
 *2026-03-21*
-This survey traces the history of public key cryptography from its classified origins in the 1960s through the post-quantum era of today. The narrative is deliberately person-centered, focusing on the individuals who made groundbreaking discoveries, their backgrounds, education, and the contexts that shaped their contributions. The field represents one of the most remarkable stories in modern science—a revolution that transformed how humanity secures digital communication.
-[Full Article]({{site.url}}/{{site.baseurl}}/articles/public_key_history)
+This survey traces the history of public key cryptography from its classified origins in the 1960s through the post-quantum era of today. The narrative is deliberately person-centered, focusing on the individuals who made groundbreaking discoveries, their backgrounds, education, and the contexts that shaped their contributions. The field represents one of the most remarkable stories in modern science - a revolution that transformed how humanity secures digital communication.
+[Full Article]({{'/articles/public_key_history/' | relative_url}})
 
 ### Efficient Online Computation of Health Tests for Entropy Sources
 *2026-03-21*
