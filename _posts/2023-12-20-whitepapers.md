@@ -7,10 +7,15 @@ author: team-pakcrypt
 permalink: /wp/
 ---
 
+### AUTOHARDEN: A Hardening Framework for Vehicle Cybersecurity
+*2026-03-21*
+This paper has presented AUTOHARDEN, the first comprehensive, implementation-level hardening framework for connected vehicles, addressing a critical gap between high-level regulatory requirements (ISO/SAE 21434, UNECE WP.29 R155) and the practical security configurations needed to defend against demonstrated attack vectors. Our seven-layer Attack Surface Taxonomy systematically catalogues the connected vehicle’s exposure, and the 94-control Vehicle Hardening Framework provides actionable, verifiable security directives analogous to CIS Benchmarks for enterprise ICT assets.
+[HTML]({{'/articles/AUTOHARDEN/' | relative_url}}) [PDF](https://doi.org/10.13140/RG.2.2.27150.93766)
+
 ### History of Public Key Cryptography
 *2026-03-21*
 This survey traces the history of public key cryptography from its classified origins in the 1960s through the post-quantum era of today. The narrative is deliberately person-centered, focusing on the individuals who made groundbreaking discoveries, their backgrounds, education, and the contexts that shaped their contributions. The field represents one of the most remarkable stories in modern science - a revolution that transformed how humanity secures digital communication.
-[Full Article]({{'/articles/public_key_history/' | relative_url}})
+[HTML]({{'/articles/public_key_history/' | relative_url}})
 
 ### Efficient Online Computation of Health Tests for Entropy Sources
 *2026-03-21*
