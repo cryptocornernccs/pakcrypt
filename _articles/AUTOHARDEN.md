@@ -72,7 +72,7 @@ The canonical architecture comprises multiple CAN bus segments organized by func
 
 ***ADAS Domain.*** Forward-facing camera, radar modules, LiDAR (where equipped), ultrasonic sensors, and the ADAS ECU performing sensor fusion and automated driving functions. Dedicated high-bandwidth Automotive Ethernet is common for camera data. Sensor spoofing attacks target this domain to manipulate autonomous driving decisions.
 
-***Auxiliary Bus Systems.*** LIN (Local Interconnect Network, ≤20 kbps) for low-priority peripherals (seat motors, mirror adjustment, rain sensors); MOST (Media Oriented Systems Transport, up to 150 Mbps) for legacy multimedia; FlexRay (up to 10 Mbps, deterministic) for steer-by-wire in select vehicles.
+***Auxiliary Bus Systems.*** LIN (Local Interconnect Network, <=20 kbps) for low-priority peripherals (seat motors, mirror adjustment, rain sensors); MOST (Media Oriented Systems Transport, up to 150 Mbps) for legacy multimedia; FlexRay (up to 10 Mbps, deterministic) for steer-by-wire in select vehicles.
 
 ### 3.2. External Interface Enumeration
 
@@ -80,24 +80,24 @@ We enumerate the complete set of externally accessible interfaces present in the
 
 | Interface | Protocol/Frequency | Range | CAN Path |
 | --- | --- | --- | --- |
-| TCU Cellular Modem | 4G LTE / 5G NR | Global (IP) | Gateway → CAN-P/C/B |
-| IVI Bluetooth | BT Classic / BLE 5.x | ~100 m | IVI → Gateway |
-| IVI Wi-Fi | 802.11 a/b/g/n/ac | ~50 m | IVI → Gateway |
-| IVI USB | USB 2.0/3.0 | Physical | IVI → Gateway |
+| TCU Cellular Modem | 4G LTE / 5G NR | Global (IP) | Gateway -> CAN-P/C/B |
+| IVI Bluetooth | BT Classic / BLE 5.x | ~100 m | IVI -> Gateway |
+| IVI Wi-Fi | 802.11 a/b/g/n/ac | ~50 m | IVI -> Gateway |
+| IVI USB | USB 2.0/3.0 | Physical | IVI -> Gateway |
 | OBD-II Port | CAN 2.0 (Pins 6,14) | Physical | Direct bus access |
-| PKES Key Fob | 125 kHz LF / 315--433 MHz UHF | ~5--100 m | BCM → CAN-B |
-| TPMS Sensors | 315/433 MHz ASK/FSK | ~40 m | TPMS ECU → CAN-B |
-| V2X Module | DSRC 5.9 GHz / C-V2X | ~300--1000 m | V2X ECU → Gateway |
+| PKES Key Fob | 125 kHz LF / 315--433 MHz UHF | ~5--100 m | BCM -> CAN-B |
+| TPMS Sensors | 315/433 MHz ASK/FSK | ~40 m | TPMS ECU -> CAN-B |
+| V2X Module | DSRC 5.9 GHz / C-V2X | ~300--1000 m | V2X ECU -> Gateway |
 | GPS/GNSS Receiver | L1/L2/L5 bands | Satellite | TCU/IVI internal |
-| EV Charge Port | ISO 15118 PLC | Physical | Charge ECU → CAN |
+| EV Charge Port | ISO 15118 PLC | Physical | Charge ECU -> CAN |
 | eCall Module | Cellular (mandated EU) | Global | Independent ECU |
-| UWB Anchors | 802.15.4z | ~10 m | BCM → CAN-B |
+| UWB Anchors | 802.15.4z | ~10 m | BCM -> CAN-B |
 
 **Table 1.** Complete external interface enumeration for the generic vehicle architecture. CAN Path indicates the route from the external interface to the internal CAN bus network.*
 
 ### 3.3. The Central Gateway: Security-Critical Chokepoint
 
-The Central Gateway ECU serves as the architectural firewall between untrusted domains (infotainment, external interfaces) and trusted domains (powertrain, chassis). It performs CAN-to-CAN routing, protocol translation (CAN ↔ Ethernet ↔ LIN), message filtering, and rate limiting. Ideally, the gateway enforces a strict security policy: infotainment CAN frames must never propagate to powertrain or chassis CAN buses. In practice, research has revealed critical weaknesses. NDSS VehicleSec 2024 demonstrated that gateways universally whitelist all UDS (Unified Diagnostic Services) diagnostic messages, creating a protocol-level bypass of network segmentation [19]. The 2015 Jeep Cherokee exploit leveraged the head unit's SPI connection to the gateway's V850 microcontroller to achieve CAN bus access [1]. BMW's Central Gateway Module was compromised through a logic flaw that permitted arbitrary UDS diagnostic messages to powertrain and body CAN buses via a compromised TCU [20].
+The Central Gateway ECU serves as the architectural firewall between untrusted domains (infotainment, external interfaces) and trusted domains (powertrain, chassis). It performs CAN-to-CAN routing, protocol translation (CAN <-> Ethernet <-> LIN), message filtering, and rate limiting. Ideally, the gateway enforces a strict security policy: infotainment CAN frames must never propagate to powertrain or chassis CAN buses. In practice, research has revealed critical weaknesses. NDSS VehicleSec 2024 demonstrated that gateways universally whitelist all UDS (Unified Diagnostic Services) diagnostic messages, creating a protocol-level bypass of network segmentation [19]. The 2015 Jeep Cherokee exploit leveraged the head unit's SPI connection to the gateway's V850 microcontroller to achieve CAN bus access [1]. BMW's Central Gateway Module was compromised through a logic flaw that permitted arbitrary UDS diagnostic messages to powertrain and body CAN buses via a compromised TCU [20].
 
 ## 4. Attack Surface Taxonomy
 
@@ -141,7 +141,7 @@ This layer encompasses all radio-frequency attack vectors accessible without phy
 
 **V-3.3: BLE Relay/Proximity Attack.** Link-layer relay of BLE phone-as-a-key communication, bypassing encryption and application-level protections. NCC Group demonstrated on Tesla Model 3 (May 2022), unlocking and starting the vehicle with the owner's phone 25 meters away [32].
 
-**V-3.4: TPMS Eavesdropping and Spoofing.** Interception of unencrypted, unauthenticated TPMS transmissions (315/433 MHz) for vehicle tracking (unique 32-bit sensor IDs) or injection of false pressure readings to trigger driver distraction. Rouf et al. (USENIX Security 2010) demonstrated at 40+ meters [33]. Synacktiv (Pwn2Own 2024) achieved RCE via TPMS→VCSEC integer overflow (CVE-2025-2082) [5].
+**V-3.4: TPMS Eavesdropping and Spoofing.** Interception of unencrypted, unauthenticated TPMS transmissions (315/433 MHz) for vehicle tracking (unique 32-bit sensor IDs) or injection of false pressure readings to trigger driver distraction. Rouf et al. (USENIX Security 2010) demonstrated at 40+ meters [33]. Synacktiv (Pwn2Own 2024) achieved RCE via TPMS->VCSEC integer overflow (CVE-2025-2082) [5].
 
 **V-3.5: GPS/GNSS Spoofing.** Overriding legitimate satellite navigation signals with stronger spoofed signals from SDR-based transmitters, causing route deviation, incorrect position reporting, and potential lane departure in vehicles relying on GPS for navigation-assisted ADAS functions [34].
 
@@ -177,7 +177,7 @@ This layer encompasses all radio-frequency attack vectors accessible without phy
 
 ### 4.7. Layer 7: Aftermarket/Third-Party Device Layer
 
-**V-7.1: OBD-II Dongle Exploitation.** "Plug-N-Pwned" (USENIX Security 2020) tested all 77 Amazon US OBD-II dongles: 100% had ≥2 vulnerabilities, 85% lacked authentication, 67.53% failed to filter dangerous CAN messages [35]. Bosch Drivelog Connector---Bluetooth brute-force → CAN injection → engine stop [42].
+**V-7.1: OBD-II Dongle Exploitation.** "Plug-N-Pwned" (USENIX Security 2020) tested all 77 Amazon US OBD-II dongles: 100% had >=2 vulnerabilities, 85% lacked authentication, 67.53% failed to filter dangerous CAN messages [35]. Bosch Drivelog Connector---Bluetooth brute-force -> CAN injection -> engine stop [42].
 
 **V-7.2: GPS Tracker Compromise.** MiCODUS MV720: hardcoded API key (CVE-2022-2107), default password "123456" in 94.5% of devices, MITM redirect command (CVE-2022-2141)---1.5 million devices in 169 countries [43].
 
@@ -375,7 +375,7 @@ Based on the threat model analysis, we recommend the following operational proto
 
 **(4) Aftermarket device prohibition:** Do not install any third-party device (OBD-II dongle, GPS tracker, dashcam with cellular connectivity, aftermarket head unit) without security vetting by qualified automotive cybersecurity assessors.
 
-**(5) Servicing protocol:** All vehicle servicing must occur at security-cleared facilities with continuous vehicle monitoring (CCTV, access logs). Post-servicing, perform CAN bus baseline comparison, OBD-II device enumeration (can-utils cansniffer), and RF spectrum sweep (1 MHz–6 GHz) to detect unauthorized transmitters.
+**(5) Servicing protocol:** All vehicle servicing must occur at security-cleared facilities with continuous vehicle monitoring (CCTV, access logs). Post-servicing, perform CAN bus baseline comparison, OBD-II device enumeration (can-utils cansniffer), and RF spectrum sweep (1 MHz--6 GHz) to detect unauthorized transmitters.
 
 **(6) Continuous monitoring:** Deploy a dedicated, trusted CAN bus monitoring device (e.g., CSS Electronics CANedge2 with encrypted cellular reporting to the protective organization's SOC) that provides real-time anomaly detection independent of the vehicle's own systems.
 
@@ -494,7 +494,7 @@ The fundamental insight underlying this framework is that vehicle cybersecurity 
 
 [37] Curry, S.: Web hackers vs. the auto industry: critical vulnerabilities in Ferrari, BMW, Rolls Royce, Porsche, and more. Technical Blog (2023)
 
-[38] Köhler, S., et al.: Brokenwire: wireless disruption of CCS electric vehicle charging. In: NDSS (2023)
+[38] Kohler, S., et al.: Brokenwire: wireless disruption of CCS electric vehicle charging. In: NDSS (2023)
 
 [39] Baker, R., Martinovic, I.: Losing the car keys: wireless PHY-layer insecurity in EV charging. In: USENIX Security Symposium (2019)
 
