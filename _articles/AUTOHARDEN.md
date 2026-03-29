@@ -1,9 +1,6 @@
 ---
 layout: post
 title: "AUTOHARDEN: A Comprehensive Hardening Framework for Connected Vehicle Cybersecurity"
-categories: [automotive-security, cybersecurity, research]
-tags: [vehicle-hardening, CAN-bus, attack-surface, nation-state-threat, ISO-21434, UNECE-WP29, defense-in-depth, hardening-benchmark, connected-vehicle, AUTOHARDEN]
-toc: true
 ---
 
 ## Abstract
