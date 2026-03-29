@@ -5,7 +5,9 @@ title: "History of Public Key Cryptography"
 
 This article traces the history of public key cryptography from its classified origins in the 1960s through the post-quantum era of today. The narrative is deliberately person-centered, focusing on the individuals who made groundbreaking discoveries, their backgrounds, education, and the contexts that shaped their contributions. The field represents one of the most remarkable stories in modern science—a revolution that transformed how humanity secures digital communication.
 
-## Part I: The Secret Origins (1969-1975)
+---
+
+## <span style="color: seagreen;"> **Part I: The Secret Origins (1969-1975)** </span>
 
 ### The GCHQ Trinity: Ellis, Cocks, and Williamson
 
@@ -55,7 +57,7 @@ Williamson's method used modular exponentiation in a way that made it computatio
 
 ---
 
-## Part II: The Public Revolution (1976-1978)
+## <span style="color: seagreen;"> **Part II: The Public Revolution (1976-1978)** </span>
 
 ### Whitfield Diffie (born 1944)
 
@@ -213,7 +215,7 @@ Adleman has humorously noted that his initials appear last in "RSA" because he s
 
 ---
 
-## Part III: The Expansion Era (1980-1989)
+## <span style="color: seagreen;"> **Part III: The Expansion Era (1980-1989)** </span>
 
 ### Taher Elgamal (born 1955)
 
@@ -339,7 +341,7 @@ He earned his Ph.D. from UC Berkeley in 1982 under Manuel Blum. After a postdoc 
 
 ---
 
-## Part IV: The Maturation Era (1990-1999)
+## <span style="color: seagreen;"> **Part IV: The Maturation Era (1990-1999)** </span>
 
 ### Robert J. McEliece (1942-2019)
 
@@ -423,7 +425,7 @@ He earned his Ph.D. from UC Berkeley in 1982 under Manuel Blum. After a postdoc 
 
 ---
 
-## Part V: The Modern Era (2000-Present)
+## <span style="color: seagreen;"> **Part V: The Modern Era (2000-Present)** </span>
 
 ### Dan Boneh (born 1969)
 
@@ -542,7 +544,7 @@ Returning to mathematics, he worked at DoCoMo USA Labs (2000-2005) before pursui
 
 ---
 
-## Part VI: Post-Quantum Cryptography Standardization (2016-2024)
+## <span style="color: seagreen;"> **Part VI: Post-Quantum Cryptography Standardization (2016-2024)** </span>
 
 ### The NIST Competition
 
@@ -604,7 +606,7 @@ In 2016, NIST launched the Post-Quantum Cryptography Standardization Process to 
 
 ---
 
-## Summary: The People and Their Legacies
+## <span style="color: seagreen;"> **Summary: The People and Their Legacies** </span>
 
 ### The Pioneers (1969-1978)
 
@@ -648,7 +650,7 @@ In 2016, NIST launched the Post-Quantum Cryptography Standardization Process to 
 
 ---
 
-## Conclusion
+## Final Words
 
 The history of public key cryptography is a testament to human ingenuity and the power of mathematical thinking. From James Ellis's classified conceptual breakthrough at GCHQ to the post-quantum standards being deployed today, this field has been shaped by remarkable individuals from diverse backgrounds.
 
