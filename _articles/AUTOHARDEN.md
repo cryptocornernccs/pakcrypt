@@ -1,14 +1,6 @@
 ---
 layout: post
 title: "AUTOHARDEN: A Comprehensive Hardening Framework for Connected Vehicle Cybersecurity"
-subtitle: "From Attack Surface Taxonomy to Implementable Hardening Controls"
-date: 2026-03-29
-authors:
-  - name: Ji Won
-    affiliation: PakCrypt NPO, Islamabad, Pakistan
-    email: won@pakcrypt.org
-  - name: Naveed A. A.
-    affiliation: PakCrypt NPO, Islamabad, Pakistan
 categories: [automotive-security, cybersecurity, research]
 tags: [vehicle-hardening, CAN-bus, attack-surface, nation-state-threat, ISO-21434, UNECE-WP29, defense-in-depth, hardening-benchmark, connected-vehicle, AUTOHARDEN]
 toc: true
@@ -444,9 +436,9 @@ The fundamental insight underlying this framework is that vehicle cybersecurity 
 
 [12] UNECE: UN Regulation No. 155 --- Cyber security and cyber security management system. WP.29 (2021)
 
-[13] Center for Internet Security: CIS Benchmarks. https://www.cisecurity.org/cis-benchmarks (2024)
+[13] Center for Internet Security: CIS Benchmarks. [Link](https://www.cisecurity.org/cis-benchmarks) (2024)
 
-[14] DISA: Security Technical Implementation Guides (STIGs). https://public.cyber.mil/stigs/ (2024)
+[14] DISA: Security Technical Implementation Guides (STIGs). [Link](https://public.cyber.mil/stigs/) (2024)
 
 [15] Scarfone, K., Souppaya, M., Hoffman, P.: Guide to general server security. NIST SP 800-123 (2008)
 
