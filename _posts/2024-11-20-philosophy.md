@@ -14,6 +14,13 @@ Can something genuinely free arise from something entirely fixed? Most contempor
 However, these accounts confuse unpredictability with freedom. A system may be unpredictable to any external observer-even to itself-while remaining fully determined. Unpredictability is an epistemic property of observers. Freedom, if it is anything at all, is a metaphysical property of agents. The two are not the same, and the persistent conflation of them has impoverished the free will debate.
 [PDF]({{site.url}}/{{site.baseurl}}/assets/phi/FWQ8989821.pdf), [HTML]({{'/articles/freewill/' | relative_url}})
 
+### The Architecture of Mind
+*2026-03-13*
+
+There are five core mental phenomena: consciousness, self-awareness, thinking, intelligence, and free will. Each concept occupies a distinct stratum in the architecture of mind. They form a dependency hierarchy in which lower strata constitute necessary conditions for higher ones.
+Consciousness is the foundational phenomenal ground without which subjective experience cannot arise. Second, self-awareness, thinking, intelligence, and free will each emerge only when their prerequisite conditions are satisfied. Third, artificial intelligence reveals a critical divergence: intelligence and thinking can be instantiated without consciousness, thereby severing the dependency chain that governs biological minds.
+[PDF]({{site.url}}/{{site.baseurl}}/assets/phi/AMP23423923.pdf), [HTML]({{'/articles/mind/' | relative_url}})
+
 
 ### Epistemic Architecture and Organizational Performance
 *2026-03-04*
