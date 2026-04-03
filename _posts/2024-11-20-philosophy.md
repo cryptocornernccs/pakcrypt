@@ -7,6 +7,14 @@ author: team-pakcrypt
 permalink: /phi/
 ---
 
+### Free Will as Quantum Weak Emergence
+*2026-03-14*
+
+Can something genuinely free arise from something entirely fixed? Most contemporary philosophers answer yes.
+However, these accounts confuse unpredictability with freedom. A system may be unpredictable to any external observer-even to itself-while remaining fully determined. Unpredictability is an epistemic property of observers. Freedom, if it is anything at all, is a metaphysical property of agents. The two are not the same, and the persistent conflation of them has impoverished the free will debate.
+[PDF]({{site.url}}/{{site.baseurl}}/assets/phi/FWQ8989821.pdf)
+
+
 ### Epistemic Architecture and Organizational Performance
 *2026-03-04*
 
