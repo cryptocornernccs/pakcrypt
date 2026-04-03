@@ -3,21 +3,6 @@ layout: post
 title: "Free Will as Quantum Weak Emergence"
 ---
 
-**Free Will as Quantum Weak Emergence\
-- The Distribution Reshaping Criterion -**
-
-Sara Malik^\*^ *and* Naveed A. A.
-
-PakCrypt NPO -- Islamabad, Pakistan
-
-^\*^*corresponding author* <smk@pakcrypt.org>
-
-[01 April 2026]{.mark}
-
-Technical Report -- TR-PHI-20260401A
-
-**Abstract**
-
 This paper advances a libertarian theory of free will grounded in
 quantum indeterminacy and formalized within measure-theoretic
 probability theory. We argue, against compatibilist accounts that locate
@@ -48,94 +33,6 @@ architecture of higher-order knowledge structures in agential reasoning.
 ***Keywords**:* free will; quantum indeterminacy; weak emergence;
 stochastic kernel; operational definition; distribution reshaping;
 determinism; compatibilism; Conway--Kochen theorem; Markov kernel
-
-# Contents {#contents .TOC-Heading}
-
-[1 The Problem [5](#the-problem)](#the-problem)
-
-[2 Definitions and Framework
-[6](#definitions-and-framework)](#definitions-and-framework)
-
-[2.1 Determinism [6](#determinism)](#determinism)
-
-[2.2 Free Will: The Tripartite Condition
-[6](#free-will-the-tripartite-condition)](#free-will-the-tripartite-condition)
-
-[2.3 Emergence [6](#emergence)](#emergence)
-
-[3 The Deterministic Closure Theorem
-[7](#the-deterministic-closure-theorem)](#the-deterministic-closure-theorem)
-
-[3.1 Theorem [7](#theorem)](#theorem)
-
-[3.2 Proof Sketch [7](#proof-sketch)](#proof-sketch)
-
-[3.3 Extension to Continuous and Chaotic Systems
-[7](#extension-to-continuous-and-chaotic-systems)](#extension-to-continuous-and-chaotic-systems)
-
-[3.4 Corollary: The Incompatibility Thesis
-[8](#corollary-the-incompatibility-thesis)](#corollary-the-incompatibility-thesis)
-
-[4 The Distribution Reshaping Criterion
-[8](#the-distribution-reshaping-criterion)](#the-distribution-reshaping-criterion)
-
-[4.1 Motivation [8](#motivation)](#motivation)
-
-[4.2 Measure-Theoretic Formalisation
-[9](#measure-theoretic-formalisation)](#measure-theoretic-formalisation)
-
-[4.3 The Dynamic Case: Evaluative State Evolution
-[10](#the-dynamic-case-evaluative-state-evolution)](#the-dynamic-case-evaluative-state-evolution)
-
-[4.4 The Distribution Reshaping Criterion
-[10](#the-distribution-reshaping-criterion-1)](#the-distribution-reshaping-criterion-1)
-
-[4.5 Relation to Established Mathematical Structures
-[12](#relation-to-established-mathematical-structures)](#relation-to-established-mathematical-structures)
-
-[4.6 Measure-Theoretic Validity
-[13](#measure-theoretic-validity)](#measure-theoretic-validity)
-
-[4.7 DRC Resolves Tension between AP, AS, and RR
-[14](#drc-resolves-tension-between-ap-as-and-rr)](#drc-resolves-tension-between-ap-as-and-rr)
-
-[5 Free Will as Quantum Weak Emergence
-[14](#free-will-as-quantum-weak-emergence)](#free-will-as-quantum-weak-emergence)
-
-[5.1 Constructive Demonstration
-[14](#constructive-demonstration)](#constructive-demonstration)
-
-[5.2 Classification as Weak Emergence
-[15](#classification-as-weak-emergence)](#classification-as-weak-emergence)
-
-[5.3 Connection to the Conway--Kochen Free Will Theorem
-[15](#connection-to-the-conwaykochen-free-will-theorem)](#connection-to-the-conwaykochen-free-will-theorem)
-
-[6 Objections and Replies
-[16](#objections-and-replies)](#objections-and-replies)
-
-[6.1 The Compatibilist Objection: Why Demand Alternative Possibilities?
-[16](#the-compatibilist-objection-why-demand-alternative-possibilities)](#the-compatibilist-objection-why-demand-alternative-possibilities)
-
-[6.2 The Lloyd Objection: Computational Irreducibility Suffices
-[16](#the-lloyd-objection-computational-irreducibility-suffices)](#the-lloyd-objection-computational-irreducibility-suffices)
-
-[6.3 The Intelligibility Objection: Randomness Is Not Freedom
-[17](#the-intelligibility-objection-randomness-is-not-freedom)](#the-intelligibility-objection-randomness-is-not-freedom)
-
-[6.4 The Luck Objection: Distribution Reshaping Does Not Eliminate Luck
-[18](#the-luck-objection-distribution-reshaping-does-not-eliminate-luck)](#the-luck-objection-distribution-reshaping-does-not-eliminate-luck)
-
-[6.5 The Superdeterminism Objection
-[18](#the-superdeterminism-objection)](#the-superdeterminism-objection)
-
-[6.6 Does the DRC Entail Panpsychist Free Will?
-[19](#does-the-drc-entail-panpsychist-free-will)](#does-the-drc-entail-panpsychist-free-will)
-
-[7 Implications for the Science of Consciousness and AI
-[19](#implications-for-the-science-of-consciousness-and-ai)](#implications-for-the-science-of-consciousness-and-ai)
-
-[8 Conclusion [20](#conclusion)](#conclusion)
 
 #  The Problem
 
