@@ -7,6 +7,12 @@ author: team-pakcrypt
 permalink: /phi/
 ---
 
+### Mechanics of the Universe
+*2026-03-24*
+
+This paper traces the intellectual arc of mechanics from Isaac Newton's force-based framework through the energetic reformulations of Euler, Lagrange, and Hamilton, to Einstein's relativistic revolution and the probabilistic foundations of quantum mechanics. Each stage is presented with its defining mathematical contributions, showing how a single thread of ideas — force, energy, action, symmetry, and probability — weaves together to form the modern understanding of physical law. The narrative culminates in the Heisenberg Uncertainty Principle, the point at which classical determinism gives way to the irreducible probabilistic character of nature.
+[HTML]({{'/articles/mechanics/' | relative_url}})
+
 ### Free Will as Quantum Weak Emergence
 *2026-03-14*
 
