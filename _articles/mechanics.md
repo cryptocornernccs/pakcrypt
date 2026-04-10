@@ -4,6 +4,10 @@ title: "Mechanics of the Universe"
 mathjax: true
 ---
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
 ## Abstract
 
 This paper traces the intellectual arc of mechanics from Isaac Newton's force-based framework through the energetic reformulations of Euler, Lagrange, and Hamilton, to Einstein's relativistic revolution and the probabilistic foundations of quantum mechanics. Each stage is presented with its defining mathematical contributions, showing how a single thread of ideas — force, energy, action, symmetry, and probability — weaves together to form the modern understanding of physical law. The narrative culminates in the Heisenberg Uncertainty Principle, the point at which classical determinism gives way to the irreducible probabilistic character of nature.
