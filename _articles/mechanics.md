@@ -3,7 +3,6 @@ layout: post
 title: "Mechanics of the Universe"
 ---
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
