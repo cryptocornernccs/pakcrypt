@@ -13,12 +13,12 @@ title: "Mechanics of the Universe"
   @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
   :root {
-    --ink: #1a1a2e;
-    --muted: #4a4a6a;
-    --accent: #2c3e6b;
-    --accent-light: #e8edf5;
-    --rule: #c5cdd8;
-    --bg: #fdfdfe;
+    --ink: #ebebf3;
+    --muted: #6e6e90;
+    --accent: #51628f;
+    --accent-light: #00040a;
+    --rule: #092244;
+    --bg: #00000b;
     --sidebar: #f4f6fa;
   }
 
