@@ -7,6 +7,19 @@ author: team-pakcrypt
 permalink: /phi/
 ---
 
+
+### Language as a Generalized Computational-Semantic System
+*2026-03-26*
+
+We propose a generalized concept of language that subsumes natural language, formal languages, mathematics, and systems exhibiting genuine
+nondeterminism. Within this framework, Chomsky\'s hierarchy is treated as a classical, deterministic subcase of a broader
+computational-semantic hierarchy that admits probabilistic and quantum extensions. We argue that a language, in the general sense, is any
+finitely specifiable symbol system paired with an interpretation function that grounds its expressions in a domain of
+reference---physical, abstract, or social. Natural language is the subset whose interpretation function is anchored in shared biological
+cognition and social practice. 
+[PDF]({{site.url}}/{{site.baseurl}}/assets/phi/GLAN3472492.pdf), [HTML]({{'/articles/lanhypo/' | relative_url}})
+
+
 ### Mechanics of the Universe
 *2026-03-24*
 
