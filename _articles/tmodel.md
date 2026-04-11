@@ -6,7 +6,7 @@ title: "Cryptography Career Guide"
 **April 2026 Edition**
 
 
-# Executive Summary
+# <span style="color: seagreen;"> **Executive Summary** </span> 
 
 The cryptography industry is experiencing unprecedented growth, with
 global crypto employment reaching 1.6 million professionals in 2025 and
@@ -36,7 +36,7 @@ pathways. Use this framework to build your horizontal foundation and
 select your vertical specialization based on personal interest,
 aptitude, and market opportunity.
 
-# Introduction to the T-Model
+# <span style="color: seagreen;"> **Introduction to the T-Model** </span>  
 
 The T-Model is a proven framework for professional development that has
 gained particular relevance in complex technical domains like
@@ -118,7 +118,7 @@ positions receive 80-120 applicants versus 200-400 for technical roles.
 This supply-demand imbalance creates exceptional opportunities for
 professionals who invest in the right skills.
 
-# The Horizontal Foundation: 50 Core Skills
+# <span style="color: seagreen;"> **The Horizontal Foundation: 50 Core Skills** </span> 
 
 The following sections present 50 essential cryptography skills
 organized by market impact score. Each skill includes a description from
@@ -126,7 +126,7 @@ industry perspective, employer expectations, and innovation
 requirements. Scores range from 3-29 based on job market demand, salary
 potential, and growth trajectory.
 
-## Category A: High-Impact Core Skills (Score 20-29)
+## <span style="color: seagreen;"> **Category A: High-Impact Core Skills (Score 20-29)** </span> 
 
 These top-tier skills represent the highest market demand and
 compensation potential. They form the foundation for premium career
@@ -231,7 +231,7 @@ threshold cryptography integration, and automated key rotation
 strategies. Research quantum-safe key distribution and contribute to
 standards development.
 
-## Category B: Strategic Growth Areas (Score 14-19)
+## <span style="color: seagreen;"> **Category B: Strategic Growth Areas (Score 14-19)** </span>  
 
 These skills represent high-growth areas with strong future potential.
 Investment in these domains positions professionals for emerging
@@ -385,7 +385,7 @@ protocols.
 hardware acceleration, develop practical MPC applications for real-world
 problems.
 
-## Category C: Specialized Domains (Score 8-13)
+## <span style="color: seagreen;"> **Category C: Specialized Domains (Score 8-13)** </span> 
 
 These skills represent important specialized areas that offer strong
 career opportunities, particularly for professionals seeking to
@@ -590,7 +590,7 @@ experience with constrained implementations.
 **Innovation Requirements:** Research ultra-lightweight designs, explore
 post-quantum lightweight cryptography, contribute to standardization.
 
-## Category D: Emerging & Niche Areas (Score 3-7)
+## <span style="color: seagreen;"> **Category D: Emerging & Niche Areas (Score 3-7)** </span> 
 
 These skills represent emerging research areas or specialized niches.
 While current market demand may be lower, they offer opportunities for
@@ -887,7 +887,7 @@ research.
 **Innovation Requirements:** Research secure isogeny schemes, analyze
 proposed constructions, contribute to understanding.
 
-# Vertical Specialization Recommendations
+# <span style="color: seagreen;"> **Vertical Specialization Recommendations** </span> 
 
 Based on market analysis and industry trends, the following vertical
 specializations offer exceptional career opportunities for cryptography
@@ -959,7 +959,7 @@ experts in cryptography. This suits professionals with strong
 mathematical backgrounds. Career path: Verification Engineer -\> Formal
 Methods Specialist -\> Verification Lead.
 
-# Career Roadmap & Action Plan
+# <span style="color: seagreen;"> **Career Roadmap & Action Plan** </span> 
 
 Building a successful cryptography career requires systematic skill
 development and strategic positioning. The following roadmap provides
@@ -967,89 +967,71 @@ actionable guidance for each career stage.
 
 ## Phase 1: Foundation Building (0-2 Years)
 
-9.  Master fundamental mathematics: discrete math, number theory, linear
+1.  Master fundamental mathematics: discrete math, number theory, linear
     algebra, probability
 
-10. Develop strong programming skills: Rust, C/C++, Python, Go
+2. Develop strong programming skills: Rust, C/C++, Python, Go
 
-11. Study core cryptography: symmetric/asymmetric encryption, hash
+3. Study core cryptography: symmetric/asymmetric encryption, hash
     functions, MACs, digital signatures
 
-12. Complete online courses: Cryptography I/II (Dan Boneh), security
+4. Complete online courses: Cryptography I/II (Dan Boneh), security
     certifications
 
-13. Build projects: Implement classic algorithms, participate in CTFs,
+5. Build projects: Implement classic algorithms, participate in CTFs,
     contribute to open source
 
-14. Target roles: Junior Security Engineer, Cryptography Intern,
+**Target roles:** Junior Security Engineer, Cryptography Intern,
     Security Analyst
 
 ## Phase 2: Horizontal Expansion (2-4 Years)
 
-15. Develop breadth across all 50 skills in this report
+6. Develop breadth across all 50 skills in this report
 
-16. Gain hands-on experience with cryptographic libraries and tools
+7. Gain hands-on experience with cryptographic libraries and tools
 
-17. Understand applied cryptography in real-world systems
+8. Understand applied cryptography in real-world systems
 
-18. Build a portfolio: GitHub projects, blog posts, conference talks
+9. Build a portfolio: GitHub projects, blog posts, conference talks
 
-19. Network: Attend conferences (Crypto, Real World Crypto, CHES), join
+10. Network: Attend conferences (Crypto, Real World Crypto, CHES), join
     communities
 
-20. Target roles: Security Engineer, Cryptography Engineer, Protocol
+**Target roles:** Security Engineer, Cryptography Engineer, Protocol
     Developer
 
 ## Phase 3: Vertical Deepening (4-7 Years)
 
-21. Select and commit to 1-2 vertical specializations
+11. Select and commit to 1-2 vertical specializations
 
-22. Develop world-class expertise through focused study and practice
+12. Develop world-class expertise through focused study and practice
 
-23. Contribute to significant projects in your specialization
+13. Contribute to significant projects in your specialization
 
-24. Publish research, speak at conferences, build reputation
+14. Publish research, speak at conferences, build reputation
 
-25. Mentor junior professionals, contribute to standards
+15. Mentor junior professionals, contribute to standards
 
-26. Target roles: Senior Cryptographer, Security Architect, Lead
+**Target roles:** Senior Cryptographer, Security Architect, Lead
     Researcher
 
 ## Phase 4: Leadership & Impact (7+ Years)
 
-27. Establish thought leadership in your specialization
+16. Establish thought leadership in your specialization
 
-28. Drive organizational or industry-wide security strategy
+17. Drive organizational or industry-wide security strategy
 
-29. Build and lead high-performing cryptography teams
+18. Build and lead high-performing cryptography teams
 
-30. Contribute to standards bodies (NIST, IETF, ISO)
+19. Contribute to standards bodies (NIST, IETF, ISO)
 
-31. Shape the future of cryptography through research and innovation
+20. Shape the future of cryptography through research and innovation
 
-32. Target roles: Chief Cryptographer, VP Security, Distinguished
+**Target roles:** Chief Cryptographer, VP Security, Distinguished
     Engineer, Professor
 
-## Key Success Factors
 
-33. Continuous Learning: Cryptography evolves rapidly; commit to
-    lifelong learning
-
-34. Practical Experience: Theory is essential, but implementation skills
-    differentiate
-
-35. Security Mindset: Think like an attacker; understand how systems
-    fail
-
-36. Communication: Explain complex concepts clearly to diverse audiences
-
-37. Ethics: Cryptography protects people; maintain high ethical
-    standards
-
-38. Community: Engage with the cryptography community; collaboration
-    drives progress
-
-# Conclusion
+# <span style="color: seagreen;"> **Final Advice** </span>
 
 The T-Model provides a powerful framework for building a successful
 cryptography career. By developing broad horizontal knowledge across 50+
@@ -1069,10 +1051,3 @@ a reference guide. Revisit the skill assessments regularly, track your
 progress, and adjust your learning priorities as the market evolves. The
 future belongs to those who invest in themselves today.
 
-**The T-Model for Cryptography Careers**
-
-Strategic Career Guide for Fresh Graduates & Young Professionals
-
-April 2026 Edition
-
-Based on market research and industry analysis
