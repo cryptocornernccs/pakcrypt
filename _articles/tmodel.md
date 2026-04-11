@@ -1,38 +1,10 @@
-> **The T-Model for**
->
-> **Cryptography Careers**
->
-> A Comprehensive Analysis of 50 Essential Skills for Industry Success
->
-> Strategic Career Guide for Fresh Graduates & Young Professionals
->
-> April 2026 Edition
+---
+layout: post
+title: "Cryptography Career Guide"
+---
 
-# Table of Contents
+**April 2026 Edition**
 
-Right-click the TOC and select \"Update Field\" to refresh page numbers
-
-Executive Summary 3
-
-Introduction to the T-Model 4
-
-Market Overview & Industry Trends 5
-
-The Horizontal Foundation: 50 Core Skills 7
-
-Category A: High-Impact Core Skills (Score 20-29) 7
-
-Category B: Strategic Growth Areas (Score 14-19) 12
-
-Category C: Specialized Domains (Score 8-13) 16
-
-Category D: Emerging & Niche Areas (Score 3-7) 21
-
-Vertical Specialization Recommendations 25
-
-Career Roadmap & Action Plan 28
-
-Conclusion 30
 
 # Executive Summary
 
