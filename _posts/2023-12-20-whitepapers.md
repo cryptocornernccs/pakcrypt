@@ -1,6 +1,6 @@
 ---
 title:  "Technical Articles"
-date:   2026-03-28 07:22:34 +0500
+date:   2026-04-02 07:22:34 +0500
 categories: [whitepapers]
 tags: [Whitepapers, Knowledge]
 author: team-pakcrypt
@@ -8,12 +8,19 @@ permalink: /wp/
 ---
 
 ### Cryptography Career Guide 2026
-*2026-03-28*
+*2026-04-02*
 
 The cryptography industry is experiencing unprecedented growth, with global crypto employment reaching 1.6 million professionals in 2025 and
 job openings surging 47% year-over-year. For fresh graduates and young professionals seeking to enter this dynamic field, understanding the
 T-Model for career development is essential for strategic skill acquisition and long-term success.
 [HTML]({{'/articles/tmodel/' | relative_url}}) 
+
+### Randomness, Entropy, Unpredictability, and Information
+*2026-03-28*
+
+There is more to randomness than any one discipline can hold. Most of the confusion around randomness dissolves once one accepts a single uncomfortable fact: **the words "random," "unpredictable," "entropic," and "nondeterministic" do not name a single property of the world.
+[HTML]({{'/articles/randentro/' | relative_url}}) 
+
 
 ### AUTOHARDEN: A Hardening Framework for Vehicle Cybersecurity
 *2026-03-25*
