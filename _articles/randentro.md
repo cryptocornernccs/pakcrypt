@@ -193,7 +193,7 @@ For someone building or evaluating cryptographic systems, the conclusions are co
 
 ---
 
-## <span style="color: seagreen;"> **4. Closing** </span> 1
+## <span style="color: seagreen;"> **4. Closing** </span> 
 
 There is more to randomness than any one discipline can hold. Statistics gives you indistinguishability; complexity theory gives you hardness; information theory gives you entropy; thermodynamics gives you the arrow of time; quantum mechanics gives you the only known candidate for ontic chance; and philosophy gives you the conceptual scaffolding without which none of the above has a clear meaning. The confusion you began with is not a personal failing — it is the natural result of a word ("randomness") that encodes at least six genuinely distinct technical ideas.
 
