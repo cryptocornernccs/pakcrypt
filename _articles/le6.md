@@ -1,10 +1,7 @@
-**The Living Enterprise**
-
-**Saeed Ullah**\* *and* **Naveed A.A.**
-
-\*Corresponding Author <su@pakcrypt.org>
-
-PakCrypt NPO, Islamabad, Pakistan
+---
+layout: post
+title: "The Living Enterprise"
+---
 
 +-----------------------------------------------------------------------+
 | **THE IDEA IN BRIEF**                                                 |
