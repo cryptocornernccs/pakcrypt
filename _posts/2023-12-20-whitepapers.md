@@ -1,11 +1,23 @@
 ---
 title:  "Technical Articles"
-date:   2026-04-02 07:22:34 +0500
+date:   2026-04-22 07:22:34 +0500
 categories: [whitepapers]
 tags: [Whitepapers, Knowledge]
 author: team-pakcrypt
 permalink: /wp/
 ---
+
+### Infeasibility of Grover’s Algorithm Against AES-128:
+*2026-04-22*
+
+The commonly quoted claim that Grover “halves the effective key length” is mathematically correct but is
+often decoupled from the engineering realities of building, running, and error-correcting the
+required quantum circuit. This white paper develops, from first principles, the structure of
+Grover’s algorithm, the precise nature of what it means to implement AES-128 as a quan-
+tum oracle, the role of entanglement and coherence throughout the computation, and the
+concrete resource estimates (logical qubits, physical qubits, circuit depth, gate count, and
+wall-clock time) that a realistic attack would demand. 
+[PDF]({{site.url}}/{{site.baseurl}}/assets/whitepapers/grooveraes128.pdf)
 
 ### Cryptography Career Guide 2026
 *2026-04-02*
