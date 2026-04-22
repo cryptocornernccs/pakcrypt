@@ -7,6 +7,15 @@ author: team-pakcrypt
 permalink: /phi/
 ---
 
+### Living Enterprise - LE6
+*2026-04-07*
+
+This article proposes a framework I call the **Living Enterprise 6 (LE6)**. It treats the enterprise as a living system whose six
+architectural components --- governance, leadership, management, workers, security, and external environment --- correspond to six
+components of the biological cell. The mapping is not metaphor. It is a transfer of first principles from a system that has solved the
+organizational-survival problem to one that keeps failing it. And it yields something the existing canon of strategy frameworks does not: a
+specific, measurable vocabulary for whether your company will thrive, sustain, grow --- or quietly die. 
+[PDF]({{site.url}}/{{site.baseurl}}/assets/phi/LE677737373.pdf), [HTML]({{'/articles/le6/' | relative_url}})
 
 ### Language as a Generalized Computational-Semantic System
 *2026-03-26*
