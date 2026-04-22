@@ -14,7 +14,7 @@ Security is not a state. Security is a game. More precisely, it is an unending s
 [HTML]({{'/articles/gametheory/' | relative_url}})
 
 ### Infeasibility of Grover’s Algorithm Against AES-128:
-*2026-04-22*
+*2026-04-12*
 
 The commonly quoted claim that Grover “halves the effective key length” is mathematically correct but is
 often decoupled from the engineering realities of building, running, and error-correcting the

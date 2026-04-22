@@ -8,7 +8,7 @@ This is a CISO's Field Manual for Strategic Cybersecurity in Critical Infrastruc
 
 ---
 
-### Preface: Security is a Verb
+## <span style="color: seagreen;"> **Preface: Security is a Verb** </span> 
 
 There is a comforting fiction that circulates at cybersecurity conferences, in board decks, and in the marketing copy of every vendor you have ever met. It goes like this: *security is a state your organization achieves, a plateau you reach after enough investment, a destination at the end of a roadmap.*
 
