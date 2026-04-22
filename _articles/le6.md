@@ -3,39 +3,7 @@ layout: post
 title: "The Living Enterprise"
 ---
 
-+-----------------------------------------------------------------------+
-| **THE IDEA IN BRIEF**                                                 |
-|                                                                       |
-| **THE PROBLEM.** Companies are dying faster than ever. The average    |
-| tenure on the S&P 500 has collapsed from 61 years in 1958 to under 18 |
-| today, with Innosight projecting a fall into the low double digits by |
-| 2030. Most of these deaths are not external shocks. They are          |
-| predictable internal pathologies that conventional management         |
-| frameworks describe qualitatively and diagnose late.                  |
-|                                                                       |
-| **THE REFRAME.** Treat the enterprise as a living system. The         |
-| biological cell has been tested by 3.8 billion years of selection and |
-| solves six coordination problems every enterprise also faces:         |
-| encoding rules, generating energy and direction, translating strategy |
-| into output, executing specialized work, maintaining a selective      |
-| boundary, and coupling to an environment that supplies nutrients and  |
-| enforces compatibility.                                               |
-|                                                                       |
-| **THE FRAMEWORK.** The Living Enterprise 6 (LE6) maps each of these   |
-| functions to a cellular analog --- Governance/DNA,                    |
-| Leadership/Mitochondria and Chemotaxis, Management/Ribosomes,         |
-| Workers/Enzymes, Security/Membrane and Immune System,                 |
-| Environment/Tissue Context. The mapping is not metaphor. It is a      |
-| transfer of first principles from an architecture that has solved the |
-| longevity problem to one that keeps failing it.                       |
-|                                                                       |
-| **THE PAYOFF.** A layer-by-layer diagnostic and predictive protocol:  |
-| seven steps that identify where your firm is healthy, where it is     |
-| drifting, and where it is becoming pathological --- with named        |
-| interventions calibrated to the layer and the developmental stage.    |
-+=======================================================================+
-
-# The Longevity Problem
+# <span style="color: seagreen;"> **The Longevity Problem** </span> 
 
 In 1958, the average firm on the S&P 500 could expect to live 61 years.
 Today that number is closer to 18. Research from Innosight projects a
@@ -82,34 +50,6 @@ A cell is coordinated by six functions. So is an enterprise. Each is
 independently necessary. Each failure mode is specific. Each has a
 diagnostic vocabulary we can borrow from biology.
 
-  ----------------------------------------------------------------------------
-     **LAYER**        **CELLULAR         **FUNCTION**          **SIGNATURE
-                       ANALOG**                                 FAILURE**
-  ---------------- ----------------- --------------------- -------------------
-   **Governance**        DNA +       Encode rules; protect     Cancer ---
-                    transcriptional    fidelity; permit       unregulated,
-                      regulation      regulated variation   unchecked growth
-
-   **Leadership**   Mitochondria +     Generate energy;    Energy collapse or
-                      chemotaxis        sense direction      gradient drift
-
-   **Management**  Ribosomes + ER +   Translate strategy;   Proteinopathy ---
-                         Golgi       quality-check; route   misfolded output
-                                            output         
-
-    **Workers**        Enzymes +     Catalyze work within   Denaturation ---
-                       cofactors     a regulated operating      burnout,
-                                            window            disengagement
-
-    **Security /   Plasma membrane +   Admit what helps;   Immunodeficiency or
-       Risk**        immune system    exclude what harms;     autoimmunity
-                                      learn from exposure  
-
-     **External      Extracellular     Supply nutrients;       Anoikis ---
-   Environment**    matrix + tissue   signal fit; enforce     environmental
-                                         compatibility          rejection
-  ----------------------------------------------------------------------------
-
 These layers are not a checklist. They form a feedback loop. Governance
 specifies what should be built. Leadership mobilizes energy and points
 it toward opportunity. Management translates direction into executable
@@ -122,9 +62,9 @@ adapts. When one link fails, the cascade begins.
 The rest of this article walks each layer. The biological first
 principle. The executive diagnostic. At least one cautionary case.
 
-• • •
+---
 
-# Governance: The Code
+# <span style="color: seagreen;"> **Governance: The Code** </span> 
 
 DNA is the cell's constitution. It is a four-letter sequence that
 encodes every protein the cell can make, every regulatory element that
@@ -202,9 +142,9 @@ policy. In every case, an executive reading the org chart would have
 seen no problem. The diagnostic that matters is the expressed
 governance, not the written one.
 
-• • •
+---
 
-# Leadership: Energy and Direction
+# <span style="color: seagreen;"> **Leadership: Energy and Direction** </span> 
 
 Leadership in a cell is a dual function. The cell needs energy to do
 anything. It also needs direction to know where to go. Neither
@@ -276,9 +216,9 @@ combined charismatic energy output with a profound chemotaxis failure
 technology. In each case the individual's talent was not the issue. The
 leadership function was doing one of its two jobs and not the other.
 
-• • •
+---
 
-# Management: The Translation Layer
+# <span style="color: seagreen;"> **Management: The Translation Layer** </span> 
 
 If governance is the code and leadership is energy-and-direction,
 management is where strategy becomes product. The cellular machinery is
@@ -352,9 +292,9 @@ integration while systematically starving the translation machinery;
 PP&E fell from \$9 billion in 2007 to \$2.6 billion in 2016. Strategy
 existed. The ribosomes had been starved.
 
-• • •
+---
 
-# Workers: The Enzymes
+# <span style="color: seagreen;"> **Workers: The Enzymes** </span> 
 
 Workers are the catalytic layer. Cells do not have generic workers. They
 have enzymes --- each with a specific substrate, a specific regulatory
@@ -420,9 +360,9 @@ Management Review (2022) found that toxic culture was 10.4 times more
 predictive of attrition than compensation. The workers had not lost
 their skills. Their operating window had been destroyed.
 
-• • •
+---
 
-# Security: The Selective Boundary
+# <span style="color: seagreen;"> **Security: The Selective Boundary** </span> 
 
 The cell does not wall itself off. It selects. The plasma membrane is a
 carefully engineered filter that admits nutrients and signals while
@@ -487,9 +427,9 @@ effectively a viral infection of the firm's own ribosomes. In each case
 the firm had security. What it lacked was the immune-system architecture
 that turns each infection into durable memory.
 
-• • •
+---
 
-# Environment: The Tissue Context
+# <span style="color: seagreen;"> **Environment: The Tissue Context** </span> 
 
 No cell survives alone. It lives embedded in an extracellular matrix ---
 a mesh of structural proteins that is simultaneously scaffold and
@@ -558,9 +498,9 @@ the same template. The failure was not a cellular pathology. It was an
 inability to detect that the organism was no longer living in the right
 tissue.
 
-• • •
+---
 
-# Discussion
+# <span style="color: seagreen;"> **Discussion** </span> 
 
 ## From Zygote to Organism: The Founder's Arc
 
@@ -607,7 +547,7 @@ of coherence. Neither is universally correct. The question is which is
 appropriate to the developmental stage. A zygote should not be run as a
 corporation. A corporation should not be run as a zygote.
 
-• • •
+---
 
 ##  Where the Analogy Breaks
 
@@ -641,7 +581,7 @@ rigorous and the scale matches. Declare the limit wherever it does not.
 Handled with that discipline, the analogy is strength. Handled sloppily,
 it is a liability.
 
-• • •
+---
 
 ##  The Diagnostic Protocol
 
@@ -687,9 +627,9 @@ interventions are strategic repositioning. The intervention must match
 the layer and the stage. Layer mismatch is the single most common reason
 expensive transformations fail.
 
-• • •
+---
 
-#  Conclusion
+# <span style="color: seagreen;"> **Conclusion** </span>
 
 The cell has been tested by 3.8 billion years of selection. Your company
 has been tested, if you are fortunate, for a few decades. Biology has
