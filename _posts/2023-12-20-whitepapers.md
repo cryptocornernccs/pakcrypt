@@ -7,6 +7,12 @@ author: team-pakcrypt
 permalink: /wp/
 ---
 
+### How to Play the Security Game? :
+*2026-04-22*
+
+Security is not a state. Security is a game. More precisely, it is an unending series of strategic interactions between people with conflicting goals, incomplete information, limited resources, and the capacity to learn from each other. The attacker adapts. The regulator changes the rules. Your CFO re-prioritizes. Your users find workarounds. Your vendors externalize their risk onto your balance sheet. And the game continues, whether you are paying attention or not.
+[HTML]({{'/articles/gametheory/' | relative_url}})
+
 ### Infeasibility of Grover’s Algorithm Against AES-128:
 *2026-04-22*
 
