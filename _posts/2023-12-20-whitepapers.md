@@ -1,11 +1,18 @@
 ---
 title:  "Technical Articles"
-date:   2026-04-22 07:22:34 +0500
+date:   2026-04-25 07:22:34 +0500
 categories: [whitepapers]
 tags: [Whitepapers, Knowledge]
 author: team-pakcrypt
 permalink: /wp/
 ---
+
+
+### Vulnerabilities of Human Cognition :
+*2026-04-25*
+
+The most consequential attack surface of the early twenty-first century is not silicon but neural. Where twentieth-century information warfare targeted communication channels, contemporary adversaries target the **inferential machinery** that processes those channels — and they do so with industrial precision. Unless we understand the vulnerabilities of human cognitive system, we will be the victims of information warfare.  
+[HTML]({{'/articles/hcog/' | relative_url}}), [PDF]({{site.url}}/{{site.baseurl}}/assets/whitepapers/hcog.pdf)
 
 ### How to Play the Security Game? :
 *2026-04-22*
