@@ -1,12 +1,20 @@
 ---
 title:  "Technical Articles"
-date:   2026-04-25 07:22:34 +0500
+date:   2026-05-15 07:22:34 +0500
 categories: [whitepapers]
 tags: [Whitepapers, Knowledge]
 author: team-pakcrypt
 permalink: /wp/
 ---
 
+### A Friendly Tour of Post-Quantum Digital Signatures :
+*2026-05-15*
+
+In 2024 the U.S. National Institute of Standards and Technology (NIST) finalized its first batch
+of quantum-safe cryptographic standards, and on 14 May 2026 it advanced nine further digital-
+signature candidates to a third round of evaluation. This white paper explains, from the ground
+up, the mathematics behind thirteen of these scheme.
+ [PDF]({{site.url}}/{{site.baseurl}}/assets/whitepapers/PQCW1.pdf)
 
 ### Vulnerabilities of Human Cognition :
 *2026-04-25*
