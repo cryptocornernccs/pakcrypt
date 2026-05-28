@@ -1,11 +1,18 @@
 ---
 title:  "Technical Articles"
-date:   2026-05-15 07:22:34 +0500
+date:   2026-05-28 07:22:34 +0500
 categories: [whitepapers]
 tags: [Whitepapers, Knowledge]
 author: team-pakcrypt
 permalink: /wp/
 ---
+
+### Business Case - A Guide to Crypto Chip Design with Open-Source Tools:
+*2026-05-28*
+
+Custom silicon is no longer the exclusive domain of big corporations. A startup with FPGA experience can now design a production-grade chip on a free, open-source toolchain and have it manufactured by a world-class foundry through shared-wafer services. 
+For founders willing to pair that engineering discipline with sound commercial judgment, the reward is substantial: the ability to build differentiated, workload-optimized silicon that was, until very recently, the exclusive territory of the largest semiconductor firms. 
+ [PDF]({{site.url}}/{{site.baseurl}}/assets/whitepapers/FABLESS.pdf)
 
 ### A Friendly Tour of Post-Quantum Digital Signatures :
 *2026-05-15*
