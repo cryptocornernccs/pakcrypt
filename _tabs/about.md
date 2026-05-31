@@ -139,13 +139,15 @@ div.content {
   display: inline-block;
 }
 .q-hero__h1 {
-  position: relative; z-index: 1;
-  font-family: var(--q-fh) !important;
-  font-size: clamp(2.8rem, 10vw, 8rem) !important;
-  font-weight: 800 !important;
-  line-height: .92 !important;
-  letter-spacing: -.03em;
-  color: var(--q-light) !important;
+position: relative; z-index: 1;
+font-family: var(--q-fh) !important;
+font-size: clamp(3.5rem, 8vw, 6rem) !important;  /* Changed from clamp(2.8rem, 10vw, 8rem) */
+font-weight: 800 !important;
+line-height: 1.0 !important;  /* Changed from .92 */
+letter-spacing: -.03em;
+color: var(--q-light) !important;
+word-break: normal !important;  /* Add this */
+overflow-wrap: normal !important;  /* Add this */
 }
 .q-hero__h1 em {
   font-style: normal;
