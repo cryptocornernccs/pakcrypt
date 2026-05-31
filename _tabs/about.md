@@ -52,9 +52,9 @@ div.content {
   font-family: var(--q-fb);
   font-weight: 300;
   line-height: 1.7;
-  overflow-x: hidden;
-  margin-left: -1rem;
-  margin-right: -1rem;
+  overflow-x: visible;
+  margin-left: 0;
+  margin-right: 0;
 }
 #q *, #q *::before, #q *::after { box-sizing: border-box; }
 #q h1, #q h2, #q h3 { color: var(--q-light); border: none; padding: 0; margin: 0; }
@@ -819,7 +819,7 @@ overflow-wrap: normal !important;  /* Add this */
     <h2 class="q-cta__head">Ready to prove<br>your cryptographic mettle?</h2>
     <p class="q-cta__sub">Join Pakistan's most rigorous cryptography challenge. Pre-qualifying opens September 2026 — open to all.</p>
     <div class="q-btn-row">
-      <a href="https://forms.gle/miKnbJv5VrTPwiAb8" class="q-btn" target="_blank" rel="noopener">Register for PakCrypt 2026 →</a>
+      <a href="https://pakcrypt.org/pc26" class="q-btn" target="_blank" rel="noopener">Join PakCrypt 2026 →</a>
       <a href="https://pakcrypt.org/assets/doc/pc26samv1.pdf" class="q-btn q-btn--ghost" target="_blank" rel="noopener">Sample Problems (PDF)</a>
     </div>
   </section>
