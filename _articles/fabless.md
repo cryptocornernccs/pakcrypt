@@ -2,6 +2,7 @@
 layout: post
 title: "Governance of Common Knowledge"
 ---
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap');
 
@@ -86,13 +87,42 @@ title: "Governance of Common Knowledge"
 .fa-meta a:hover { text-decoration: underline; }
 .fa-meta .sep { color: var(--border); }
 
+/* ── Override Jekyll's narrow post container ── */
+/* Targets common Jekyll themes: Minima, Cayman, minimal, hacker, etc.        */
+/* We widen the post/content wrapper and let .fa fill the available space.    */
+.post, .post-content, .page-content .post,
+article.post, .wrapper > .post,
+.content, .markdown-body,
+.inner, .site-content {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* The .fa wrapper spans the full available width with comfortable side padding */
+.fa {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
 /* ── Layout ── */
 .fa-layout {
   display: grid;
   grid-template-columns: 1fr 252px;
-  gap: 3rem; align-items: start; margin-top: 2.5rem;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 2.5rem;
 }
-@media (max-width: 880px) {
+.fa-hero, .fa-mob-btn, .fa-mob-list, .fa-abstract, .fa-stats {
+  /* no extra max-width needed — .fa already constrains width */
+}
+@media (max-width: 1060px) {
   .fa-layout { grid-template-columns: 1fr; }
   .fa-sidebar { display: none; }
 }
@@ -588,7 +618,7 @@ title: "Governance of Common Knowledge"
 
 <div class="fa-img wide">
   <div class="img-icon">🖼</div>
-  <div class="img-name"><img src="{{ site.baseurl }}/assets/images/articles/fabless/pic1.png" alt="Value Chain"></div>
+  <div class="img-name">pic1.png</div>
   <div class="img-cap">The traditional semiconductor industry value chain, from chip design through EDA, IP licensing, foundry fabrication, and OSAT packaging — showing where the fabless model inserts a startup.</div>
 </div>
 
