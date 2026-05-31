@@ -733,10 +733,12 @@ MathJax = {
 
 <p>Since $B$ and $B'$ each take values in $\{-1,+1\}$, exactly one of two cases holds:</p>
 
-<ul class="ckp-hier">
-  <li><strong>Case 1: $B = B'$.</strong> Then $B + B' = \pm 2$ and $B - B' = 0$, giving $S^{*} = \pm 2A$ and $|S^{*}| = 2$.</li>
-  <li><strong>Case 2: $B = -B'$.</strong> Then $B + B' = 0$ and $B - B' = \pm 2$, giving $S^{*} = \pm 2A'$ and $|S^{*}| = 2$.</li>
-</ul>
+<div class="ckp-eq" style="text-align:left;">
+  <p style="margin:0 0 0.8rem;"><strong>Case 1: $B = B'$.</strong><br>
+  Then $B + B' = \pm 2$ and $B - B' = 0$, giving $S^{*} = \pm 2A$ and $|S^{*}| = 2$.</p>
+  <p style="margin:0;"><strong>Case 2: $B = -B'$.</strong><br>
+  Then $B + B' = 0$ and $B - B' = \pm 2$, giving $S^{*} = \pm 2A'$ and $|S^{*}| = 2$.</p>
+</div>
 
 <p>In every possible case $|S^{*}| = 2$. Since the measured correlation $E(a,b)$ is the average of $AB$ over many trials, and the average of a quantity bounded by $2$ in magnitude is also bounded by $2$, we obtain $|S| \leq 2$ for any local hidden-variable theory.</p>
 
