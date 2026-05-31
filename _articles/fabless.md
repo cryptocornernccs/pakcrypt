@@ -617,8 +617,8 @@ article.post, .wrapper > .post,
 <p class="lead">The global semiconductor landscape is undergoing a profound structural shift — one driven not by a single breakthrough, but by the quiet convergence of two independent revolutions happening simultaneously on opposite sides of the design chain. On the manufacturing side, the fabless business model has matured to the point where a startup can access world-class TSMC fabrication capacity without owning a single piece of cleanroom equipment. On the software side, a decade of academic and community investment has produced an open-source EDA toolchain capable of taking a chip design all the way from Verilog code to a manufacturable GDSII layout file — for free.</p>
 
 <div class="fa-img wide">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic1.png</div>
+  <img src="{{ '/assets/images/articles/fabless/pic1.png' | relative_url }}"
+       alt="Traditional semiconductor industry value chain">
   <div class="img-cap">The traditional semiconductor industry value chain, from chip design through EDA, IP licensing, foundry fabrication, and OSAT packaging — showing where the fabless model inserts a startup.</div>
 </div>
 
