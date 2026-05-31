@@ -7,8 +7,16 @@ author: team-pakcrypt
 permalink: /wp/
 ---
 
-### Business Case - A Guide to Crypto Chip Design with Open-Source Tools:
+### Quantum Foundation - Understanding the Bell Inequality:
 *2026-05-28*
+
+This tutorial is a self-contained guide to Bell’s theorem, quantum entanglement, and device-independent randomness, written for students with a basic background in linear algebra and probability. We derive the CHSH bound algebraically, explain why quantum mechanics violates
+it, give a detailed treatment of entanglement, and discuss the landmark 2026 ETH Zurich demonstration of certified perfect randomness as a
+concrete application. 
+ [PDF]({{site.url}}/{{site.baseurl}}/assets/whitepapers/bell.pdf), [HTML]({{'/articles/bell/' | relative_url}})
+
+### Business Case - A Guide to Crypto Chip Design with Open-Source Tools:
+*2026-05-27*
 
 Custom silicon is no longer the exclusive domain of big corporations. A startup with FPGA experience can now design a production-grade chip on a free, open-source toolchain and have it manufactured by a world-class foundry through shared-wafer services. 
 For founders willing to pair that engineering discipline with sound commercial judgment, the reward is substantial: the ability to build differentiated, workload-optimized silicon that was, until very recently, the exclusive territory of the largest semiconductor firms. 
