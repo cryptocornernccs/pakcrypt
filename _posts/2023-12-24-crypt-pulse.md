@@ -164,7 +164,7 @@ permalink: ./pulse
   margin: 0 auto;
   padding: 48px 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 0;
 }
 @media (max-width: 860px) {
