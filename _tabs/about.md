@@ -6,24 +6,40 @@ pin: true
 custom_css: true
 ---
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+<style >
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800 &family=DM+Mono:wght@300;400;500 &family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300 &display=swap');
 
 /* ═══════════════════════════════════════════════════════════
-   ESCAPE CHIRPY'S CONTENT COLUMN
+   ESCAPE CHIRPY'S CONTENT COLUMN (FIXED)
    ═══════════════════════════════════════════════════════════ */
+/* Hide the standard header */
 article.px-1 > header { display: none !important; }
+
+/* Clean up padding but do NOT touch margins on the article */
 article.px-1 { padding: 0 !important; }
+
+/* Make content full-width, but allow visible overflow */
 div.content { 
-  max-width: none !important; 
+  max-width: 100% !important; 
   padding: 0 !important; 
   margin: 0 !important;
-  overflow-x: hidden;
+  overflow-x: visible !important;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   CRITICAL FIX FOR SIDEBAR FREEZE
+   Do NOT modify main-wrapper or core-wrapper!
+   ═══════════════════════════════════════════════════════════ */
+/* 
+   The lines below were causing the sidebar freeze by stripping
+   the structural padding required for the Chirpy layout.
+   They have been removed.
+   
 #main-wrapper, #core-wrapper, .row.filler { 
   padding: 0 !important; 
   margin: 0 !important;
 }
+*/
 
 /* ═══════════════════════════════════════════════════════════
    TOKENS
@@ -43,7 +59,7 @@ div.content {
   --q-fb:     'DM Sans', sans-serif;
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════════
    ROOT WRAPPER
    ═══════════════════════════════════════════════════════════ */
 #q {
@@ -139,15 +155,15 @@ div.content {
   display: inline-block;
 }
 .q-hero__h1 {
-position: relative; z-index: 1;
-font-family: var(--q-fh) !important;
-font-size: clamp(3.5rem, 8vw, 6rem) !important;  /* Changed from clamp(2.8rem, 10vw, 8rem) */
-font-weight: 800 !important;
-line-height: 1.0 !important;  /* Changed from .92 */
-letter-spacing: -.03em;
-color: var(--q-light) !important;
-word-break: normal !important;  /* Add this */
-overflow-wrap: normal !important;  /* Add this */
+  position: relative; z-index: 1;
+  font-family: var(--q-fh) !important;
+  font-size: clamp(3.5rem, 8vw, 6rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.0 !important;
+  letter-spacing: -.03em;
+  color: var(--q-light) !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
 }
 .q-hero__h1 em {
   font-style: normal;
@@ -181,9 +197,9 @@ overflow-wrap: normal !important;  /* Add this */
   50%      { width:7rem; opacity:.5; }
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════════
    STATS STRIP
-   ═══════════════════════════════════════════════════════════ */
+   ══════════════════════════════════════════════════════════ */
 .q-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%,160px),1fr));
@@ -193,23 +209,22 @@ overflow-wrap: normal !important;  /* Add this */
 }
 .q-stat {
   background: var(--q-ink);
-  padding: 1.5rem 0.8rem; /* Reduced padding from 2.25rem 1.5rem */
+  padding: 1.5rem 0.8rem;
   border-right: 1px solid var(--q-line);
   position: relative; overflow: hidden;
   transition: background .25s;
-  text-align: center; /* Added to center content */
+  text-align: center;
 }
 .q-stat:last-child { border-right: none; }
 .q-stat:hover { background: var(--q-ink2); }
 .q-stat__n {
   font-family: var(--q-fh) !important;
-  /* Changed 5vw to 2.5vw and max size to 2.5rem */
   font-size: clamp(1.8rem, 2.5vw, 2.5rem) !important; 
   font-weight: 800 !important;
   color: var(--q-light) !important;
   line-height: 1.1;
   letter-spacing: -.04em;
-  white-space: nowrap !important; /* CRITICAL: Keeps "5th" or "1K+" on one line */
+  white-space: nowrap !important;
 }
 .q-stat__n span { color: var(--q-accent) !important; }
 .q-stat__l {
@@ -322,13 +337,13 @@ overflow-wrap: normal !important;  /* Add this */
   /* auto-fill + smaller min-width = natural 2/3/4 columns depending on viewport */
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); 
   gap: 2px;
-  max-width: 1200px; /* Keeps cards from overstretching on wide screens */
+  max-width: 1200px;
   margin: 0 auto;
 }
 .q-card {
   background: var(--q-card);
   position: relative; overflow: hidden;
-  aspect-ratio: 3/4; /* Maintains consistent portrait shape */
+  aspect-ratio: 3/4;
   display: flex; flex-direction: column; justify-content: flex-end;
 }
 @media (min-width: 860px) {
@@ -567,29 +582,29 @@ overflow-wrap: normal !important;  /* Add this */
 }
 .q-fade.q-in { opacity: 1; transform: none; }
 
-.q-stagger > * {
+.q-stagger  > * {
   opacity: 0; transform: translateY(16px);
   transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
 }
-.q-stagger.q-in > * { opacity: 1; transform: none; }
-.q-stagger.q-in > *:nth-child(1)  { transition-delay:.00s }
-.q-stagger.q-in > *:nth-child(2)  { transition-delay:.07s }
-.q-stagger.q-in > *:nth-child(3)  { transition-delay:.14s }
-.q-stagger.q-in > *:nth-child(4)  { transition-delay:.21s }
-.q-stagger.q-in > *:nth-child(5)  { transition-delay:.28s }
-.q-stagger.q-in > *:nth-child(6)  { transition-delay:.35s }
-.q-stagger.q-in > *:nth-child(7)  { transition-delay:.42s }
-.q-stagger.q-in > *:nth-child(8)  { transition-delay:.49s }
-.q-stagger.q-in > *:nth-child(9)  { transition-delay:.56s }
-.q-stagger.q-in > *:nth-child(10) { transition-delay:.63s }
-.q-stagger.q-in > *:nth-child(11) { transition-delay:.70s }
-.q-stagger.q-in > *:nth-child(12) { transition-delay:.77s }
+.q-stagger.q-in  > * { opacity: 1; transform: none; }
+.q-stagger.q-in  > *:nth-child(1)  { transition-delay:.00s }
+.q-stagger.q-in  > *:nth-child(2)  { transition-delay:.07s }
+.q-stagger.q-in  > *:nth-child(3)  { transition-delay:.14s }
+.q-stagger.q-in  > *:nth-child(4)  { transition-delay:.21s }
+.q-stagger.q-in  > *:nth-child(5)  { transition-delay:.28s }
+.q-stagger.q-in  > *:nth-child(6)  { transition-delay:.35s }
+.q-stagger.q-in  > *:nth-child(7)  { transition-delay:.42s }
+.q-stagger.q-in  > *:nth-child(8)  { transition-delay:.49s }
+.q-stagger.q-in  > *:nth-child(9)  { transition-delay:.56s }
+.q-stagger.q-in  > *:nth-child(10) { transition-delay:.63s }
+.q-stagger.q-in  > *:nth-child(11) { transition-delay:.70s }
+.q-stagger.q-in  > *:nth-child(12) { transition-delay:.77s }
 
 @media (max-width:560px) {
   .q-stat { padding: 1.4rem 1rem; }
   .q-block { padding: 1.6rem; }
 }
-</style>
+</style >
 
 <div id="q">
   <!-- ════════════ HERO ════════════ -->
@@ -638,7 +653,7 @@ overflow-wrap: normal !important;  /* Add this */
           <p>Banking, governance, healthcare, defence, communications — every critical system today depends on cryptographic primitives for its integrity and confidentiality. A nation that cannot independently reason about cryptography is not sovereign in any meaningful technological sense.</p>
         </div>
         <div class="q-block">
-          <span class="q-block__icon">⚛️</span>
+          <span class="q-block__icon">️</span>
           <div class="q-block__title">The Post-Quantum Imperative</div>
           <p>Quantum computers capable of breaking RSA and ECC are approaching. NIST has already standardised post-quantum algorithms. Pakistan cannot afford to be a late adopter — the cost is measured not in dollars, but in compromised state secrets and national communications.</p>
         </div>
@@ -653,7 +668,7 @@ overflow-wrap: normal !important;  /* Add this */
           <p>The IACR Cryptography Winter School we co-host annually brings the world's leading cryptographers to Islamabad. This is not a lecture series — it is hands-on mentorship from the people who design the protocols the world depends on.</p>
         </div>
         <div class="q-block">
-          <span class="q-block__icon">🤝</span>
+          <span class="q-block__icon"></span>
           <div class="q-block__title">Community, Not Just Competition</div>
           <p>PakCrypt is not a trophy-hunting exercise. Our non-profit structure means every rupee of prize money and operational budget goes toward the mission. Our networking dinners, expert Q&amp;A sessions, and open symposiums collapse the hierarchy between established professionals and emerging talent.</p>
         </div>
@@ -672,7 +687,7 @@ overflow-wrap: normal !important;  /* Add this */
     <h2 class="q-head" style="margin-bottom:2.5rem">Meet the <span>Team</span></h2>
     <div class="q-team q-stagger">
       <!-- Lead Cards -->
-      <div class="q-card q-card">
+      <div class="q-card">
         <img class="q-card__img" src="{{ '/assets/images/tm/2.jpg' | relative_url }}" alt="Naveed A. Aun" loading="lazy">
         <div class="q-card__over"></div><div class="q-card__bar"></div>
         <span class="q-card__idx">02</span>
@@ -681,7 +696,7 @@ overflow-wrap: normal !important;  /* Add this */
           <div class="q-card__name">Naveed A. Aun</div>
         </div>
       </div>
-      <div class="q-card q-card">
+      <div class="q-card">
         <img class="q-card__img" src="{{ '/assets/images/tm/3.jpg' | relative_url }}" alt="Zubair Ansari" loading="lazy">
         <div class="q-card__over"></div><div class="q-card__bar"></div>
         <span class="q-card__idx">03</span>
@@ -808,13 +823,13 @@ overflow-wrap: normal !important;  /* Add this */
           NCCS, Air University, Islamabad · November 2026 (tentative)<br><br>
           Pre-Qualifying Round opens September 2026. Two tracks: <strong>Professional</strong> (open to all) and <strong>Amateur</strong> (under 20). Total prize pool: <strong style="color:var(--q-accent)">Rs. 5.0 million</strong>. Finalists receive full sponsorship — travel, accommodation, meals, and free IACR Winter School registration.
         </div>
-        <a href="https://forms.gle/miKnbJv5VrTPwiAb8" class="q-box__cta" target="_blank" rel="noopener">Register Now →</a>
+        <a href="https://pakcrypt.org/pc26" class="q-box__cta" target="_blank" rel="noopener">Register Now →</a>
       </div>
     </div>
   </section>
   <hr class="q-hr">
 
-  <!-- ════════════ CTA ════════════ -->
+  <!-- ════════════ CTA ═══════════ -->
   <section class="q-cta">
     <h2 class="q-cta__head">Ready to prove<br>your cryptographic mettle?</h2>
     <p class="q-cta__sub">Join Pakistan's most rigorous cryptography challenge. Pre-qualifying opens September 2026 — open to all.</p>
