@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Governance of Common Knowledge"
+title: "Guide to ASIC Design with Open Source Tools"
 ---
 
 <style>
@@ -630,11 +630,6 @@ article.post, .wrapper > .post,
 <h3>1.2 — EDA Tools: From Commercial Monopoly to Open Source</h3>
 <p>For decades, EDA software was the exclusive domain of three large, publicly-traded corporations: Synopsys, Cadence Design Systems, and Siemens EDA (formerly Mentor Graphics). Their proprietary suites, often costing hundreds of thousands of dollars per engineer per year, formed a significant part of the economic barrier that prevented smaller companies and academic institutions from entering the field of custom silicon design.</p>
 
-<div class="fa-img">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic2.png</div>
-  <div class="img-cap">The "Big Five" EDA players — Synopsys, Cadence, Siemens EDA, Ansys, and Silvaco — with their primary tool domains across the RTL-to-GDSII flow, showing estimated enterprise annual licence costs per seat for TSMC 28nm.</div>
-</div>
 
 <p>A quiet revolution has been underway since around 2016, culminating in a robust, fully-integrated, open-source EDA ecosystem capable of supporting a complete <span class="t">RTL-to-GDSII</span> design flow for production-grade chips. This development has been the critical enabler for growth of the fabless model among small teams, removing the prohibitive software licensing costs that once formed the second wall after fabrication capital.</p>
 
@@ -662,8 +657,8 @@ article.post, .wrapper > .post,
 <p>TSMC's Open Innovation Platform® (OIP) is a cornerstone of this strategy, providing customers with Process Design Kits (PDKs) and extensive technical support to streamline the design-to-manufacturing handoff and optimise yields. SMIC, China's largest contract chip maker, leverages heavily subsidised domestic capacity expansions to aggressively price mature nodes, making it a highly competitive option for startups focused on strict unit-cost optimisation.</p>
 
 <div class="fa-img wide">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic3.png</div>
+  <img src="{{ '/assets/images/articles/fabless/pic3.png' | relative_url }}"
+       alt="Multi Project Wafer">
   <div class="img-cap">Multi-Project Wafer (MPW) shuttle concept — showing how up to 40–60 different startup chip designs share a single wafer's reticle area and mask set, dramatically reducing per-project NRE costs.</div>
 </div>
 
@@ -716,8 +711,8 @@ article.post, .wrapper > .post,
 <p>Because the capital cost of 28nm equipment has already been paid off at TSMC and other foundries, they can offer 28nm manufacturing at a significantly lower price point — recovering only operational costs and profit margin, not amortising billions in new capital expenditure. This economic advantage makes 28nm exceptionally cost-effective for volume production.</p>
 
 <div class="fa-img">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic4.png</div>
+  <img src="{{ '/assets/images/articles/fabless/pic4.png' | relative_url }}"
+       alt="Gate Structure">
   <div class="img-cap">Planar MOSFET (28nm and above) vs. FinFET structure (below 28nm) — cross-section showing how the gate wraps around the fin on three sides in FinFET geometry to suppress short-channel leakage effects.</div>
 </div>
 
@@ -755,11 +750,6 @@ article.post, .wrapper > .post,
 <h3>3.2 — The Hybrid Workflow for TSMC 28nm</h3>
 <p>Using open-source EDA tools to design a commercial chip on a proprietary node like TSMC 28nm is possible, but it requires a carefully managed hybrid workflow. Open-source tools like OpenROAD and Yosys are highly capable of handling the placement and routing mathematics for a 28nm design — even down to 5nm — however, TSMC will not accept a raw design file unless it has been verified by industry-standard commercial sign-off tools. The critical bridge is the silicon broker's Calibre verification service.</p>
 
-<div class="fa-img wide">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic5.png</div>
-  <div class="img-cap">The hybrid RTL-to-GDSII workflow for TSMC 28nm — showing how open-source tools (Yosys, OpenROAD, KLayout) handle most of the flow, with the commercial Calibre sign-off step bridged through the silicon broker.</div>
-</div>
 
 <div class="fa-pipeline">
 
@@ -855,11 +845,6 @@ article.post, .wrapper > .post,
   <div class="fa-bar-note">Startup discount programmes require: company ≤5 years old, valuation &lt;$10M, annual revenue near zero. Cloud pay-per-use during a 2-month synthesis/P&amp;R sprint typically totals $20K–$35K for the entire project lifecycle — the most cost-effective option for an early-stage startup.</div>
 </div>
 
-<div class="fa-img">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic6.png</div>
-  <div class="img-cap">Comparison of annual EDA licence costs per seat: enterprise retail rates vs. startup accelerator programme pricing vs. open-source toolchain — highlighting the dramatic cost reduction available to qualifying early-stage companies.</div>
-</div>
 
 </section>
 
@@ -947,11 +932,6 @@ article.post, .wrapper > .post,
 <h4>Step 4 — Floorplanning and Macro Placement</h4>
 <p>Memory blocks (SRAM macros generated via TSMC's compiler) and analog IP must be floorplanned carefully. Hand-placing dozens of SRAMs in a complex vector processor often leads to routing congestion and clock distribution issues. Key rules: enforce placement halos around SRAM boundaries — keep at least 2–3 μm clear of standard cells to ensure macro pins are fully accessible by the routing engine. Design the Power Delivery Network (PDN) in OpenROAD by routing a low-impedance mesh of horizontal and vertical power straps on upper metals (M7, M8, M9) to combat dynamic IR drop, which becomes a yield risk in high-frequency designs.</p>
 
-<div class="fa-img wide">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic7.png</div>
-  <div class="img-cap">Example floorplan for a RISC-V SoC at 28nm — showing SRAM macro placement with halos, the power delivery network mesh on upper metal layers, clock domain boundaries, and I/O ring placement around the die perimeter.</div>
-</div>
 
 <h4>Step 5 — Placement, CTS, and Routing in OpenROAD</h4>
 <p>Once the floorplan is fixed, use the OpenROAD tool suite to execute the core physical design flow autonomously:</p>
@@ -972,11 +952,6 @@ article.post, .wrapper > .post,
   <li><strong>DFM (Design for Manufacturability):</strong> Run automated Python scripts in KLayout to insert dummy metal fill across empty regions — ensuring a uniform metal density profile to prevent planarisation dishing — and insert redundant vias on all critical routing paths to prevent single-via open failures in production.</li>
 </ul>
 
-<div class="fa-img wide">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic8.png</div>
-  <div class="img-cap">KLayout screenshot showing DRC violation markers on a 28nm standard cell layout — typical spacing violations between M1 routing tracks and the DFM dummy-fill insertion result across an empty metal layer region.</div>
-</div>
 
 <h3>4.5 — Verification Sign-Off Scenarios and Costs</h3>
 <p>The broker's sign-off verification service comes in four distinct scenarios with very different cost implications. Choosing the right scenario requires understanding your open-source toolchain's maturity and your schedule tolerance.</p>
@@ -1022,11 +997,6 @@ article.post, .wrapper > .post,
 <h3>5.1 — Project Origin</h3>
 <p>Titan-I (T1) is an open-source, high-performance out-of-order (OoO) RISC-V Vector (RVV) processor core. It was developed by a collaborative research group including Jiuyang Liu, Qinjun Li, Yunqian Luo, and Mingyu Gao, with contributions spanning Huazhong University of Science and Technology, Tsinghua University, and the Institute of Software at the Chinese Academy of Sciences (ISCAS). The processor was presented at the 58th IEEE/ACM International Symposium on Microarchitecture (MICRO 2025) in Seoul, South Korea — one of the most selective venues in computer architecture research.</p>
 
-<div class="fa-img">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic9.png</div>
-  <div class="img-cap">Titan-I (T1) microarchitecture block diagram — showing the decoupled scalar out-of-order core, the vector issue queue, the multi-lane vector execution engine, and the RISC-V RVV 1.0 register file organisation.</div>
-</div>
 
 <h3>5.2 — Architecture</h3>
 <p>Titan-I is designed to scale both Instruction-Level Parallelism (ILP) and Data-Level Parallelism (DLP) by decoupling scalar instruction execution from a wide, multi-lane parallel vector execution engine. The architecture fully complies with the official RISC-V Vector Extension (RVV 1.0) specification, enabling efficient parallel computation of multi-precision integers and floating-point datatypes. The microarchitecture is optimised for highly parallelised applications — deep neural networks, HPC kernels, and cryptographic workloads.</p>
@@ -1076,11 +1046,6 @@ article.post, .wrapper > .post,
   <cite>— On the significance of the Titan-I result</cite>
 </div>
 
-<div class="fa-img wide">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic10.png</div>
-  <div class="img-cap">OpenROAD physical layout visualisation of a RISC-V vector processor core after place-and-route — showing standard cell placement, metal routing layers, SRAM macros, clock tree distribution, and power mesh on upper metal layers.</div>
-</div>
 
 </section>
 
@@ -1224,11 +1189,6 @@ article.post, .wrapper > .post,
   <li><strong>Total:</strong> $4,500–$8,000 for approximately 50 packaged units.</li>
 </ul>
 
-<div class="fa-img">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic11.png</div>
-  <div class="img-cap">Open-cavity QFN and ceramic PGA prototype packages — showing wire-bonded die attachment for low-volume prototype assembly without custom substrate tooling costs.</div>
-</div>
 
 <h3>7.2 — Hidden Execution Factors</h3>
 <p><strong>Lead Times:</strong> GDSII to bare die on a mature node MPW typically takes 3–4 months. Prototype packaging adds another 2–4 weeks. You will be bound to the foundry's pre-published shuttle schedule — typically 3–4 runs per year for these specific nodes. Missing the tape-out window by even one day means waiting 3 months for the next one. Build the shuttle calendar into your project plan from day one, working backwards from your tape-out date to set RTL freeze, verification completion, and sign-off milestones.</p>
@@ -1265,11 +1225,6 @@ article.post, .wrapper > .post,
   </div>
 </div>
 
-<div class="fa-img wide">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic12.png</div>
-  <div class="img-cap">The three-phase fabless startup roadmap — showing capital expenditure, technical risk, and design iteration count across the MPW shuttle, MLM refinement, and full production phases, with the risk-cost trade-off curve.</div>
-</div>
 
 <div class="fa-pull">
   <p>The phased strategy — proving the design on an MPW shuttle, refining through a multi-layer mask run, and only then committing to a full production mask set — allows you to retire technical risk before you spend serious capital.</p>
@@ -1310,8 +1265,8 @@ article.post, .wrapper > .post,
 </div>
 
 <div class="fa-img wide">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic13.png</div>
+  <img src="{{ '/assets/images/articles/fabless/pic13.png' | relative_url }}"
+       alt="Gate Structure">
   <div class="img-cap">Application-specific performance-cost positioning chart — showing where AI edge accelerators, automotive ECUs, IoT SoCs, and crypto engines sit relative to clock frequency, die area, and process node choice, with the 28nm sweet-spot zone highlighted.</div>
 </div>
 
@@ -1325,11 +1280,6 @@ article.post, .wrapper > .post,
 
 <p>That openness is not the same as ease, and it is worth being honest about what the journey demands. Unlike an FPGA bitstream, a fabricated die cannot be re-uploaded — a mistake caught after tape-out costs months and tens of thousands of dollars to correct. Foundries still require final sign-off on certified commercial tools, so a hybrid flow and a working relationship with a silicon broker are unavoidable. Foundry selection is a genuine trade-off: TSMC offers premium yield and a rich IP ecosystem at a higher price, while SMIC is markedly cheaper but carries geopolitical and export-control exposure that must be managed deliberately — particularly for designs containing cryptographic IP. None of these obstacles is disqualifying, but each rewards planning over improvisation.</p>
 
-<div class="fa-img">
-  <div class="img-icon">🖼</div>
-  <div class="img-name">pic14.png</div>
-  <div class="img-cap">Summary infographic — the complete fabless startup journey from RTL code to packaged silicon, showing the open-source tool stack, hybrid sign-off bridge, MPW shuttle, and phased production roadmap in a single visual.</div>
-</div>
 
 <p>Taken as a whole, it is the economics that make the opportunity compelling. A complete, state-of-the-art design environment is now within reach of a modest budget, and the phased strategy recommended in this paper — proving the design on an MPW shuttle, refining it through a multi-layer mask run, and only then committing to a full production mask set — allows you to retire technical risk before you spend serious capital. The 28nm planar node sits at the centre of this strategy, offering the rare convergence of low cost, ample performance, and proven manufacturability for the embedded controllers, AI accelerators, automotive subsystems, and edge devices where most startups will compete.</p>
 
