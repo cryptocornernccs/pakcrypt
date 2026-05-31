@@ -319,15 +319,16 @@ overflow-wrap: normal !important;  /* Add this */
    ═══════════════════════════════════════════════════════════ */
 .q-team {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%,255px),1fr));
+  /* auto-fill + smaller min-width = natural 2/3/4 columns depending on viewport */
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); 
   gap: 2px;
-  max-width: 1400px;
+  max-width: 1200px; /* Keeps cards from overstretching on wide screens */
   margin: 0 auto;
 }
 .q-card {
   background: var(--q-card);
   position: relative; overflow: hidden;
-  aspect-ratio: 3/4;
+  aspect-ratio: 3/4; /* Maintains consistent portrait shape */
   display: flex; flex-direction: column; justify-content: flex-end;
 }
 @media (min-width: 860px) {
@@ -602,7 +603,7 @@ overflow-wrap: normal !important;  /* Add this */
       People &amp; <br><em>Purpose</em> <br>Behind <br>PakCrypt
     </h2>
     <p class="q-hero__sub">
-      A multidisciplinary team of cryptographers, engineers, researchers, and educators — united by one conviction: that mathematical rigour and cryptographic literacy are Pakistan's most strategic intellectual assets.
+      A multidisciplinary team of cryptographers, engineers, researchers, and educators — united by one conviction: that mathematical rigour and cryptographic literacy are our most strategic intellectual assets.
     </p>
     <div class="q-hero__scroll">
       <div class="q-hero__scroll-bar"></div>
