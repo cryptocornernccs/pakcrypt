@@ -193,19 +193,23 @@ overflow-wrap: normal !important;  /* Add this */
 }
 .q-stat {
   background: var(--q-ink);
-  padding: 2.25rem 1.5rem;
+  padding: 1.5rem 0.8rem; /* Reduced padding from 2.25rem 1.5rem */
   border-right: 1px solid var(--q-line);
   position: relative; overflow: hidden;
   transition: background .25s;
+  text-align: center; /* Added to center content */
 }
 .q-stat:last-child { border-right: none; }
 .q-stat:hover { background: var(--q-ink2); }
 .q-stat__n {
   font-family: var(--q-fh) !important;
-  font-size: clamp(2.3rem,5vw,3.4rem) !important;
+  /* Changed 5vw to 2.5vw and max size to 2.5rem */
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem) !important; 
   font-weight: 800 !important;
   color: var(--q-light) !important;
-  line-height: 1; letter-spacing: -.04em;
+  line-height: 1.1;
+  letter-spacing: -.04em;
+  white-space: nowrap !important; /* CRITICAL: Keeps "5th" or "1K+" on one line */
 }
 .q-stat__n span { color: var(--q-accent) !important; }
 .q-stat__l {
