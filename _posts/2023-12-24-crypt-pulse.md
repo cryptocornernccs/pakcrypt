@@ -5,34 +5,11 @@ categories: [CryptoPulse]
 tags: [Update, News]
 author: team-pakcrypt
 permalink: ./pulse
-toc: true
 ---
 
-<!-- ══════════════════════════════════════════════════════════════════
-     CRYPT PULSE — Optimized for Chirpy Jekyll Theme
-     Changes:
-       1. toc: true in front matter — enables sidebar TOC
-       2. Hidden ## anchors before each section div feed the TOC
-          without rendering visible headings (opacity:0 + aria-hidden)
-       3. noise overlay changed from position:fixed to position:absolute
-          so it no longer overlaps the theme's fixed TOC sidebar
-       4. filter bar z-index reduced to 50 (below theme nav at ~100)
-          and top offset accounts for the theme's sticky header (~64px)
-       5. IntersectionObserver animation CSS moved into <style> block
-          (was injected at runtime — avoids FOUC / race condition)
-       6. -moz- text-fill-color fallback added to .ph-title
-       7. 2-column card grid added for wide viewports (≥1100px)
-       8. card-body font-size bumped 13.5→14px for readability
-       9. Google Fonts loaded via <link> preconnect (faster than @import)
-      10. TOC anchor headings use .toc-anchor class: position absolute,
-          height 0, overflow hidden, pointer-events none, aria-hidden
-═══════════════════════════════════════════════════════════════════ -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
 <style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+
 :root {
   --bg:         #080c10;
   --surface:    #0d1117;
@@ -51,23 +28,6 @@ toc: true
   --sans:       'IBM Plex Sans', sans-serif;
 }
 
-/* ── Hidden TOC anchors ───────────────────────────
-   These h2 elements are picked up by Chirpy's TOC
-   generator but rendered invisible to the user.    */
-.toc-anchor {
-  position: absolute;
-  height: 0;
-  overflow: hidden;
-  pointer-events: none;
-  font-size: 0;
-  line-height: 0;
-  margin: 0;
-  padding: 0;
-  border: none;
-  opacity: 0;
-  display: block;
-}
-
 /* ── Reset & Base ─────────────────────────────── */
 #pulse-wrapper * { box-sizing: border-box; margin: 0; padding: 0; }
 #pulse-wrapper {
@@ -80,12 +40,10 @@ toc: true
   overflow-x: hidden;
 }
 
-/* ── Noise texture overlay ───────────────────────
-   Changed from position:fixed to position:absolute
-   so it doesn't cover the theme's TOC sidebar      */
+/* ── Noise texture overlay ───────────────────── */
 #pulse-wrapper::before {
   content: '';
-  position: absolute; inset: 0;
+  position: fixed; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none; z-index: 0; opacity: 0.5;
 }
@@ -96,7 +54,6 @@ toc: true
   padding: 64px 40px 48px;
   border-bottom: 1px solid var(--border);
   background: linear-gradient(180deg, rgba(0,255,180,0.04) 0%, transparent 100%);
-  z-index: 1;
 }
 #pulse-header::after {
   content: '';
@@ -123,11 +80,8 @@ toc: true
   font-weight: 900; line-height: 0.92;
   letter-spacing: -0.02em;
   background: linear-gradient(135deg, #fff 0%, var(--accent) 60%, var(--accent2) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent; /* fallback for browsers without background-clip:text */
   margin-bottom: 20px;
 }
 .ph-subtitle {
@@ -154,24 +108,16 @@ toc: true
 .ph-meta-item span.dot.live { animation: blink 1.8s ease-in-out infinite; }
 @keyframes blink { 0%,100% { opacity:1 } 50% { opacity:0.2 } }
 
-/* ── Filter bar ───────────────────────────────────
-   z-index lowered to 50 (Chirpy's nav is ~100).
-   top: 64px reserves space for the theme's sticky
-   header on desktop; falls back to 0 on mobile.    */
+/* ── Filter bar ───────────────────────────────── */
 #pulse-filters {
   display: flex; align-items: center; gap: 8px;
   padding: 20px 40px;
   border-bottom: 1px solid var(--border);
-  background: rgba(13,17,23,0.92);
+  background: var(--surface);
   flex-wrap: wrap;
-  position: sticky;
-  top: 64px;
-  z-index: 50;
+  position: sticky; top: 0; z-index: 100;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-}
-@media (max-width: 860px) {
-  #pulse-filters { top: 0; }
 }
 .filter-label {
   font-family: var(--mono); font-size: 9px;
@@ -212,21 +158,17 @@ toc: true
 #search-input::placeholder { color: var(--text-muted); }
 #search-input:focus { border-color: var(--accent2); }
 
-/* ── Main grid ────────────────────────────────────
-   2-column at ≥1100px, single column below          */
+/* ── Main grid ────────────────────────────────── */
 #pulse-content {
   max-width: 1280px;
   margin: 0 auto;
   padding: 48px 40px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 0;
 }
-@media (max-width: 1100px) {
-  #pulse-content { grid-template-columns: 1fr; }
-}
 @media (max-width: 860px) {
-  #pulse-content { padding: 24px 20px; }
+  #pulse-content { grid-template-columns: 1fr; padding: 24px 20px; }
   #pulse-header { padding: 40px 20px 32px; }
   #pulse-filters { padding: 16px 20px; }
 }
@@ -237,21 +179,11 @@ toc: true
   padding: 32px 36px;
   border-bottom: 1px solid var(--border);
   border-right: 1px solid var(--border);
-  transition: background 0.3s, opacity 0.5s ease, transform 0.5s ease;
+  transition: background 0.3s;
   display: flex; flex-direction: column;
   cursor: default;
-  opacity: 0;
-  transform: translateY(16px);
-}
-.pulse-card.in-view {
-  opacity: 1;
-  transform: none;
 }
 .pulse-card:nth-child(even) { border-right: none; }
-/* On single-column layout, remove the right border from all cards */
-@media (max-width: 1100px) {
-  .pulse-card { border-right: none; }
-}
 .pulse-card::before {
   content: '';
   position: absolute; top: 0; left: 0;
@@ -264,13 +196,13 @@ toc: true
 .pulse-card:hover::before { height: 100%; }
 
 /* Category color accents */
-.pulse-card[data-cat="pqc"]      { --card-accent: #00ffb4; }
-.pulse-card[data-cat="tls"]      { --card-accent: #00b4ff; }
-.pulse-card[data-cat="quantum"]  { --card-accent: #c084fc; }
-.pulse-card[data-cat="breach"]   { --card-accent: #ff6b35; }
-.pulse-card[data-cat="protocol"] { --card-accent: #ffd700; }
-.pulse-card[data-cat="theory"]   { --card-accent: #f472b6; }
-.pulse-card[data-cat="practice"] { --card-accent: #34d399; }
+.pulse-card[data-cat="pqc"]   { --card-accent: #00ffb4; }
+.pulse-card[data-cat="tls"]   { --card-accent: #00b4ff; }
+.pulse-card[data-cat="quantum"] { --card-accent: #c084fc; }
+.pulse-card[data-cat="breach"]  { --card-accent: #ff6b35; }
+.pulse-card[data-cat="protocol"]{ --card-accent: #ffd700; }
+.pulse-card[data-cat="theory"]  { --card-accent: #f472b6; }
+.pulse-card[data-cat="practice"]{ --card-accent: #34d399; }
 
 .card-header {
   display: flex; align-items: flex-start;
@@ -303,8 +235,7 @@ toc: true
 }
 .pulse-card:hover .card-title { color: #fff; }
 .card-body {
-  font-size: 14px; /* bumped from 13.5 for readability */
-  line-height: 1.72;
+  font-size: 13.5px; line-height: 1.72;
   color: var(--text-dim); font-weight: 300;
   flex: 1;
   margin-bottom: 18px;
@@ -425,9 +356,6 @@ toc: true
 <!-- ══ CONTENT GRID ══════════════════════════════════ -->
 <main id="pulse-content">
 
-  <!-- TOC ANCHOR: hidden h2 feeds Chirpy's TOC sidebar -->
-  <h2 class="toc-anchor" aria-hidden="true">2026 — Latest</h2>
-
   <!-- SECTION: 2026 -->
   <div class="pulse-section-header">
     <span class="psh-label">2026 — Latest</span>
@@ -465,9 +393,6 @@ toc: true
       <span class="card-num">#02</span>
     </div>
   </article>
-
-  <!-- TOC ANCHOR -->
-  <h2 class="toc-anchor" aria-hidden="true">2025</h2>
 
   <!-- SECTION: 2025 -->
   <div class="pulse-section-header">
@@ -633,9 +558,6 @@ toc: true
     </div>
   </article>
 
-  <!-- TOC ANCHOR -->
-  <h2 class="toc-anchor" aria-hidden="true">2023 – 2024</h2>
-
   <!-- SECTION: 2023-2024 -->
   <div class="pulse-section-header">
     <span class="psh-label">2023 – 2024</span>
@@ -763,9 +685,6 @@ toc: true
     </div>
   </article>
 
-  <!-- TOC ANCHOR -->
-  <h2 class="toc-anchor" aria-hidden="true">Foundational Reads</h2>
-
   <!-- SECTION: Foundational -->
   <div class="pulse-section-header">
     <span class="psh-label">Foundational Reads</span>
@@ -806,7 +725,7 @@ toc: true
       <span class="card-date">2019</span>
     </div>
     <h2 class="card-title">NSA Warning on TLS "Break &amp; Inspect" Middleboxes</h2>
-    <div class="card-body"><p>In a rare rare move, the NSA warned enterprises about TLS interception devices — middleboxes that centralize trust in a single point, undermine forward secrecy, and introduce protocol-downgrade risks. The guidance reframed blanket HTTPS inspection as a risk management problem, recommending tight scoping, careful auditing, and exploring whether endpoint behavioral detection can substitute for centralized decryption.</p></div>
+    <div class="card-body"><p>In a rare move, the NSA warned enterprises about TLS interception devices — middleboxes that centralize trust in a single point, undermine forward secrecy, and introduce protocol-downgrade risks. The guidance reframed blanket HTTPS inspection as a risk management problem, recommending tight scoping, careful auditing, and exploring whether endpoint behavioral detection can substitute for centralized decryption.</p></div>
     <div class="card-footer">
       <div class="card-links">
         <a class="card-link" href="https://www.schneier.com/crypto-gram/archives/2019/1215.html" target="_blank">Context</a>
@@ -889,6 +808,7 @@ toc: true
 <script>
 (function() {
   var cards   = document.querySelectorAll('#pulse-content .pulse-card');
+  var headers = document.querySelectorAll('#pulse-content .pulse-section-header');
   var btns    = document.querySelectorAll('.filter-btn');
   var search  = document.getElementById('search-input');
   var counter = document.getElementById('filter-count');
@@ -904,11 +824,10 @@ toc: true
     var visible = 0;
 
     cards.forEach(function(card) {
-      var catMatch = activeFilter === 'all' || card.dataset.cat === activeFilter;
-      var tagMatch = !query ||
-        (card.dataset.tags || '').indexOf(query) !== -1 ||
-        card.querySelector('.card-title').textContent.toLowerCase().indexOf(query) !== -1 ||
-        card.querySelector('.card-body').textContent.toLowerCase().indexOf(query) !== -1;
+      var catMatch  = activeFilter === 'all' || card.dataset.cat === activeFilter;
+      var tagMatch  = !query || (card.dataset.tags || '').indexOf(query) !== -1 ||
+                      card.querySelector('.card-title').textContent.toLowerCase().indexOf(query) !== -1 ||
+                      card.querySelector('.card-body').textContent.toLowerCase().indexOf(query) !== -1;
       var show = catMatch && tagMatch;
       card.style.display = show ? '' : 'none';
       if (show) visible++;
@@ -917,8 +836,12 @@ toc: true
     noRes.style.display = visible === 0 ? 'block' : 'none';
     updateCount(visible);
 
-    // Show/hide section headers when all their cards are filtered out
+    // Show/hide section headers: hide a header if all cards after it (before next header) are hidden
     var sectionEls = document.querySelectorAll('#pulse-content > *');
+    var currentHeader = null;
+    var hasVisible = false;
+
+    // Two-pass: collect sections
     var sections = [];
     var current = null;
     sectionEls.forEach(function(el) {
@@ -946,28 +869,25 @@ toc: true
   });
 
   search.addEventListener('input', applyFilter);
+
+  // Initial count
   applyFilter();
 
-  // Scroll-in animation via IntersectionObserver
-  // CSS is now in the <style> block above (opacity:0/transform set on .pulse-card,
-  // cleared by .in-view) — no runtime style injection needed.
+  // Intersection Observer for entry animations
   if ('IntersectionObserver' in window) {
+    var style = document.createElement('style');
+    style.textContent = '.pulse-card { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; } .pulse-card.in-view { opacity: 1; transform: none; }';
+    document.head.appendChild(style);
+
     var io = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('in-view');
-          io.unobserve(e.target);
-        }
+        if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
       });
     }, { threshold: 0.08 });
-
     cards.forEach(function(c, i) {
       c.style.transitionDelay = (i % 2 * 80) + 'ms';
       io.observe(c);
     });
-  } else {
-    // Fallback: show all cards immediately if IO not supported
-    cards.forEach(function(c) { c.classList.add('in-view'); });
   }
 })();
 </script>
