@@ -665,7 +665,7 @@ div.content {
     <h2 class="q-head" style="margin-bottom:2.5rem">Meet the <span>Team</span></h2>
     <div class="q-team q-stagger">
       <!-- Lead Cards -->
-      <div class="q-card q-card--lead">
+      <div class="q-card q-card">
         <img class="q-card__img" src="{{ '/assets/images/tm/2.jpg' | relative_url }}" alt="Naveed A. Aun" loading="lazy">
         <div class="q-card__over"></div><div class="q-card__bar"></div>
         <span class="q-card__idx">02</span>
@@ -674,7 +674,7 @@ div.content {
           <div class="q-card__name">Naveed A. Aun</div>
         </div>
       </div>
-      <div class="q-card q-card--lead">
+      <div class="q-card q-card">
         <img class="q-card__img" src="{{ '/assets/images/tm/3.jpg' | relative_url }}" alt="Zubair Ansari" loading="lazy">
         <div class="q-card__over"></div><div class="q-card__bar"></div>
         <span class="q-card__idx">03</span>
