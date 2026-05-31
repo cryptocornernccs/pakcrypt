@@ -688,7 +688,7 @@ div.content {
     <div class="q-team q-stagger">
       <!-- Lead Cards -->
       <div class="q-card">
-        <img class="q-card__img" src="{{ '/assets/images/tm/2.jpg' | relative_url }}" alt="Naveed A. Aun" loading="lazy">
+        <img class="q-card__img" src="{{ '/assets/images/tm/2B.jpg' | relative_url }}" alt="Naveed A. Aun" loading="lazy">
         <div class="q-card__over"></div><div class="q-card__bar"></div>
         <span class="q-card__idx">02</span>
         <div class="q-card__body">
