@@ -1,8 +1,7 @@
 ---
-# the default layout is 'page'
-icon: fas fa-info-circle
-order: 4
-pin: true
+layout: page
+title: "PakCrypt — Team"
+description: "Meet the people behind Pakistan's premier cryptography community"
 ---
 
 <style>
