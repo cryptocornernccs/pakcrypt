@@ -316,6 +316,15 @@ permalink: ./pulse
   display: none;
 }
 
+/* ── TOC anchor headings (invisible, scroll targets only) ── */
+.toc-anchor {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  height: 0; margin: 0; padding: 0;
+  font-size: 0; line-height: 0;
+}
+
 /* ── Footer strip ─────────────────────────────── */
 #pulse-footer {
   text-align: center; padding: 40px;
@@ -363,6 +372,7 @@ permalink: ./pulse
     <span class="psh-count">02 entries</span>
   </div>
 
+  <h2 class="toc-anchor" id="ietf-tls-13-hybrid-key-exchange-reaches-standardization">IETF TLS 1.3 Hybrid Key Exchange Reaches Standardization</h2>
   <article class="pulse-card featured" data-cat="tls" data-tags="tls hybrid pqc ietf key-exchange">
     <div class="card-header">
       <span class="featured-badge">Featured</span>
@@ -379,6 +389,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="fully-homomorphic-encryption-beyond-lattices">Fully Homomorphic Encryption — Beyond Lattices</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="pqc nist hqc kem code-based">
     <div class="card-header">
       <span class="card-tag">Post-Quantum</span>
@@ -401,6 +412,7 @@ permalink: ./pulse
     <span class="psh-count">11 entries</span>
   </div>
 
+  <h2 class="toc-anchor" id="nist-selects-hqc-as-fifth-pqc-algorithm">NIST Selects HQC as Fifth PQC Algorithm</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="nist hqc kem post-quantum standardization code-based">
     <div class="card-header">
       <span class="card-tag">Post-Quantum</span>
@@ -417,6 +429,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="openssh-100-ships-post-quantum-by-default">OpenSSH 10.0 Ships Post-Quantum by Default</h2>
   <article class="pulse-card" data-cat="tls" data-tags="openssh pqc hybrid kem mlkem x25519 ssh">
     <div class="card-header">
       <span class="card-tag">Protocol</span>
@@ -433,6 +446,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="integral-cryptanalysis-extended-from-f2-to-fq">Integral Cryptanalysis Extended from F₂ to Fq</h2>
   <article class="pulse-card" data-cat="theory" data-tags="integral cryptanalysis fq feistel hadesmimc aes">
     <div class="card-header">
       <span class="card-tag">Theory</span>
@@ -445,6 +459,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="fiat-shamir-with-aborts-cost-barrier-lowered">Fiat-Shamir with Aborts — Cost Barrier Lowered</h2>
   <article class="pulse-card" data-cat="theory" data-tags="lattice signatures fiat-shamir aborts waterloo efficiency">
     <div class="card-header">
       <span class="card-tag">Theory</span>
@@ -457,6 +472,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="one-shot-signatures-leave-the-oracle-world">One-Shot Signatures Leave the Oracle World</h2>
   <article class="pulse-card" data-cat="theory" data-tags="one-shot signatures quantum obfuscation crypto 2025">
     <div class="card-header">
       <span class="card-tag">Theory</span>
@@ -469,6 +485,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="zero-trust-pqc-convergence">Zero Trust + PQC Convergence</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="zero trust pqc cloudflare kem hybrid sase tunnel">
     <div class="card-header">
       <span class="card-tag">Post-Quantum</span>
@@ -481,6 +498,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="ncsc-uk-sets-phased-pqc-migration-timeline">NCSC (UK) Sets Phased PQC Migration Timeline</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="ncsc uk pqc migration timeline 2028 2031 2035">
     <div class="card-header">
       <span class="card-tag">Post-Quantum</span>
@@ -497,6 +515,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="quantum-chips-still-far-from-breaking-crypto">Quantum Chips Still Far from Breaking Crypto</h2>
   <article class="pulse-card" data-cat="quantum" data-tags="quantum willow ibm microsoft hype mosca nisq">
     <div class="card-header">
       <span class="card-tag">Quantum Hardware</span>
@@ -513,6 +532,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="china-broke-encryption-debunked">"China Broke Encryption" — Debunked</h2>
   <article class="pulse-card" data-cat="quantum" data-tags="china quantum hype encryption schneier debunked">
     <div class="card-header">
       <span class="card-tag">Quantum / Hype</span>
@@ -528,6 +548,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="apples-imessage-pq3-ground-up-quantum-safe-redesign">Apple's iMessage PQ3 — Ground-Up Quantum-Safe Redesign</h2>
   <article class="pulse-card" data-cat="tls" data-tags="apple imessage pq3 post-quantum hybrid key rotation">
     <div class="card-header">
       <span class="card-tag">Protocol</span>
@@ -543,6 +564,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="first-pqc-fips-standards-published-203-204-205">First PQC FIPS Standards Published: 203, 204, 205</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="fips nist ml-kem ml-dsa slh-dsa kyber dilithium sphincs post-quantum">
     <div class="card-header">
       <span class="card-tag">Standards</span>
@@ -565,6 +587,7 @@ permalink: ./pulse
     <span class="psh-count">08 entries</span>
   </div>
 
+  <h2 class="toc-anchor" id="xz-utils-backdoor-cryptographic-trust-chain-attack">XZ Utils Backdoor — Cryptographic Trust Chain Attack</h2>
   <article class="pulse-card" data-cat="breach" data-tags="xz utils backdoor supply chain openssh sshd sigstore">
     <div class="card-header">
       <span class="card-tag">Supply Chain</span>
@@ -580,6 +603,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="passkeys-fido2webauthn-tip-from-niche-to-mainstream">Passkeys (FIDO2/WebAuthn) Tip from Niche to Mainstream</h2>
   <article class="pulse-card" data-cat="practice" data-tags="passkeys fido2 webauthn apple google microsoft phishing">
     <div class="card-header">
       <span class="card-tag">Practice</span>
@@ -595,6 +619,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="lastpass-breach-vault-encryption-nuances">LastPass Breach — Vault Encryption Nuances</h2>
   <article class="pulse-card" data-cat="breach" data-tags="lastpass breach pbkdf2 vault key derivation disclosure">
     <div class="card-header">
       <span class="card-tag">Breach</span>
@@ -610,6 +635,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="openssl-307-pre-announced-critical-lands-as-high">OpenSSL 3.0.7 — Pre-Announced Critical Lands as High</h2>
   <article class="pulse-card" data-cat="tls" data-tags="openssl cve buffer overflow x509 certificate parsing sbom">
     <div class="card-header">
       <span class="card-tag">Vulnerability</span>
@@ -625,6 +651,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="rainbow-signature-scheme-falls-weekend-on-a-laptop">Rainbow Signature Scheme Falls — "Weekend on a Laptop"</h2>
   <article class="pulse-card" data-cat="theory" data-tags="rainbow multivariate signature nist broken differential attack">
     <div class="card-header">
       <span class="card-tag">Cryptanalysis</span>
@@ -640,6 +667,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="sike-sidh-catastrophically-broken-in-hours">SIKE / SIDH Catastrophically Broken in Hours</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="sike sidh isogeny kem broken castryck decru classical attack">
     <div class="card-header">
       <span class="card-tag">Cryptanalysis</span>
@@ -655,6 +683,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="double-triple-encrypting-ransomware">Double &amp; Triple Encrypting Ransomware</h2>
   <article class="pulse-card" data-cat="breach" data-tags="ransomware double encryption aes chacha20 incident response">
     <div class="card-header">
       <span class="card-tag">Threat Intel</span>
@@ -670,6 +699,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="homomorphic-encryption-practical-caution">Homomorphic Encryption — Practical Caution</h2>
   <article class="pulse-card" data-cat="theory" data-tags="homomorphic fhe mpc tee privacy computing">
     <div class="card-header">
       <span class="card-tag">Theory / Practice</span>
@@ -692,6 +722,7 @@ permalink: ./pulse
     <span class="psh-count">07 entries</span>
   </div>
 
+  <h2 class="toc-anchor" id="nist-announces-first-four-pqc-algorithms">NIST Announces First Four PQC Algorithms</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="nist pqc four algorithms kyber dilithium falcon sphincs announcement">
     <div class="card-header">
       <span class="card-tag">Standards</span>
@@ -704,6 +735,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="tpm-fail-timing-attacks-recover-ecdsa-keys-from-certified-tpms">TPM-Fail — Timing Attacks Recover ECDSA Keys from Certified TPMs</h2>
   <article class="pulse-card" data-cat="breach" data-tags="tpm fail timing ecdsa side-channel intel stm fips attestation">
     <div class="card-header">
       <span class="card-tag">Side-Channel</span>
@@ -719,6 +751,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="nsa-warning-on-tls-break-inspect-middleboxes">NSA Warning on TLS "Break &amp; Inspect" Middleboxes</h2>
   <article class="pulse-card" data-cat="tls" data-tags="nsa tls interception break inspect https middlebox forward secrecy">
     <div class="card-header">
       <span class="card-tag">TLS / Policy</span>
@@ -734,6 +767,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="qkd-unhackable-crypto-hype-vs-reality">QKD "Unhackable" Crypto — Hype vs. Reality</h2>
   <article class="pulse-card" data-cat="quantum" data-tags="qkd quantum key distribution hype implementation security">
     <div class="card-header">
       <span class="card-tag">Quantum / Analysis</span>
@@ -749,6 +783,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="harvest-now-decrypt-later-why-acting-early-matters">"Harvest Now, Decrypt Later" — Why Acting Early Matters</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="harvest now decrypt later forward secrecy long-lived data quantum risk">
     <div class="card-header">
       <span class="card-tag">Post-Quantum</span>
@@ -765,6 +800,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="rsa-240-factored-calibration-not-crisis">RSA-240 Factored — Calibration, Not Crisis</h2>
   <article class="pulse-card" data-cat="quantum" data-tags="rsa integer factoring nfs academic record key length">
     <div class="card-header">
       <span class="card-tag">Cryptanalysis</span>
@@ -780,6 +816,7 @@ permalink: ./pulse
     </div>
   </article>
 
+  <h2 class="toc-anchor" id="indistinguishability-obfuscation-io-breakthrough-with-caveats">Indistinguishability Obfuscation (iO) — Breakthrough with Caveats</h2>
   <article class="pulse-card" data-cat="theory" data-tags="io indistinguishability obfuscation lwe assumption layered crypto-complete">
     <div class="card-header">
       <span class="card-tag">Theory</span>
