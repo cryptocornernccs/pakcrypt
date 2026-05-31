@@ -5,11 +5,34 @@ categories: [CryptoPulse]
 tags: [Update, News]
 author: team-pakcrypt
 permalink: ./pulse
+toc: true
 ---
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+<!-- ══════════════════════════════════════════════════════════════════
+     CRYPT PULSE — Optimized for Chirpy Jekyll Theme
+     Changes:
+       1. toc: true in front matter — enables sidebar TOC
+       2. Hidden ## anchors before each section div feed the TOC
+          without rendering visible headings (opacity:0 + aria-hidden)
+       3. noise overlay changed from position:fixed to position:absolute
+          so it no longer overlaps the theme's fixed TOC sidebar
+       4. filter bar z-index reduced to 50 (below theme nav at ~100)
+          and top offset accounts for the theme's sticky header (~64px)
+       5. IntersectionObserver animation CSS moved into <style> block
+          (was injected at runtime — avoids FOUC / race condition)
+       6. -moz- text-fill-color fallback added to .ph-title
+       7. 2-column card grid added for wide viewports (≥1100px)
+       8. card-body font-size bumped 13.5→14px for readability
+       9. Google Fonts loaded via <link> preconnect (faster than @import)
+      10. TOC anchor headings use .toc-anchor class: position absolute,
+          height 0, overflow hidden, pointer-events none, aria-hidden
+═══════════════════════════════════════════════════════════════════ -->
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
 :root {
   --bg:         #080c10;
   --surface:    #0d1117;
@@ -28,6 +51,23 @@ permalink: ./pulse
   --sans:       'IBM Plex Sans', sans-serif;
 }
 
+/* ── Hidden TOC anchors ───────────────────────────
+   These h2 elements are picked up by Chirpy's TOC
+   generator but rendered invisible to the user.    */
+.toc-anchor {
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  font-size: 0;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  opacity: 0;
+  display: block;
+}
+
 /* ── Reset & Base ─────────────────────────────── */
 #pulse-wrapper * { box-sizing: border-box; margin: 0; padding: 0; }
 #pulse-wrapper {
@@ -40,10 +80,12 @@ permalink: ./pulse
   overflow-x: hidden;
 }
 
-/* ── Noise texture overlay ───────────────────── */
+/* ── Noise texture overlay ───────────────────────
+   Changed from position:fixed to position:absolute
+   so it doesn't cover the theme's TOC sidebar      */
 #pulse-wrapper::before {
   content: '';
-  position: fixed; inset: 0;
+  position: absolute; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none; z-index: 0; opacity: 0.5;
 }
@@ -54,6 +96,7 @@ permalink: ./pulse
   padding: 64px 40px 48px;
   border-bottom: 1px solid var(--border);
   background: linear-gradient(180deg, rgba(0,255,180,0.04) 0%, transparent 100%);
+  z-index: 1;
 }
 #pulse-header::after {
   content: '';
@@ -80,8 +123,11 @@ permalink: ./pulse
   font-weight: 900; line-height: 0.92;
   letter-spacing: -0.02em;
   background: linear-gradient(135deg, #fff 0%, var(--accent) 60%, var(--accent2) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
   background-clip: text;
+  color: transparent; /* fallback for browsers without background-clip:text */
   margin-bottom: 20px;
 }
 .ph-subtitle {
@@ -108,16 +154,24 @@ permalink: ./pulse
 .ph-meta-item span.dot.live { animation: blink 1.8s ease-in-out infinite; }
 @keyframes blink { 0%,100% { opacity:1 } 50% { opacity:0.2 } }
 
-/* ── Filter bar ───────────────────────────────── */
+/* ── Filter bar ───────────────────────────────────
+   z-index lowered to 50 (Chirpy's nav is ~100).
+   top: 64px reserves space for the theme's sticky
+   header on desktop; falls back to 0 on mobile.    */
 #pulse-filters {
   display: flex; align-items: center; gap: 8px;
   padding: 20px 40px;
   border-bottom: 1px solid var(--border);
-  background: var(--surface);
+  background: rgba(13,17,23,0.92);
   flex-wrap: wrap;
-  position: sticky; top: 0; z-index: 100;
+  position: sticky;
+  top: 64px;
+  z-index: 50;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+@media (max-width: 860px) {
+  #pulse-filters { top: 0; }
 }
 .filter-label {
   font-family: var(--mono); font-size: 9px;
@@ -158,17 +212,21 @@ permalink: ./pulse
 #search-input::placeholder { color: var(--text-muted); }
 #search-input:focus { border-color: var(--accent2); }
 
-/* ── Main grid ────────────────────────────────── */
+/* ── Main grid ────────────────────────────────────
+   2-column at ≥1100px, single column below          */
 #pulse-content {
   max-width: 1280px;
   margin: 0 auto;
   padding: 48px 40px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 0;
 }
+@media (max-width: 1100px) {
+  #pulse-content { grid-template-columns: 1fr; }
+}
 @media (max-width: 860px) {
-  #pulse-content { grid-template-columns: 1fr; padding: 24px 20px; }
+  #pulse-content { padding: 24px 20px; }
   #pulse-header { padding: 40px 20px 32px; }
   #pulse-filters { padding: 16px 20px; }
 }
@@ -179,11 +237,21 @@ permalink: ./pulse
   padding: 32px 36px;
   border-bottom: 1px solid var(--border);
   border-right: 1px solid var(--border);
-  transition: background 0.3s;
+  transition: background 0.3s, opacity 0.5s ease, transform 0.5s ease;
   display: flex; flex-direction: column;
   cursor: default;
+  opacity: 0;
+  transform: translateY(16px);
+}
+.pulse-card.in-view {
+  opacity: 1;
+  transform: none;
 }
 .pulse-card:nth-child(even) { border-right: none; }
+/* On single-column layout, remove the right border from all cards */
+@media (max-width: 1100px) {
+  .pulse-card { border-right: none; }
+}
 .pulse-card::before {
   content: '';
   position: absolute; top: 0; left: 0;
@@ -196,13 +264,13 @@ permalink: ./pulse
 .pulse-card:hover::before { height: 100%; }
 
 /* Category color accents */
-.pulse-card[data-cat="pqc"]   { --card-accent: #00ffb4; }
-.pulse-card[data-cat="tls"]   { --card-accent: #00b4ff; }
-.pulse-card[data-cat="quantum"] { --card-accent: #c084fc; }
-.pulse-card[data-cat="breach"]  { --card-accent: #ff6b35; }
-.pulse-card[data-cat="protocol"]{ --card-accent: #ffd700; }
-.pulse-card[data-cat="theory"]  { --card-accent: #f472b6; }
-.pulse-card[data-cat="practice"]{ --card-accent: #34d399; }
+.pulse-card[data-cat="pqc"]      { --card-accent: #00ffb4; }
+.pulse-card[data-cat="tls"]      { --card-accent: #00b4ff; }
+.pulse-card[data-cat="quantum"]  { --card-accent: #c084fc; }
+.pulse-card[data-cat="breach"]   { --card-accent: #ff6b35; }
+.pulse-card[data-cat="protocol"] { --card-accent: #ffd700; }
+.pulse-card[data-cat="theory"]   { --card-accent: #f472b6; }
+.pulse-card[data-cat="practice"] { --card-accent: #34d399; }
 
 .card-header {
   display: flex; align-items: flex-start;
@@ -235,7 +303,8 @@ permalink: ./pulse
 }
 .pulse-card:hover .card-title { color: #fff; }
 .card-body {
-  font-size: 13.5px; line-height: 1.72;
+  font-size: 14px; /* bumped from 13.5 for readability */
+  line-height: 1.72;
   color: var(--text-dim); font-weight: 300;
   flex: 1;
   margin-bottom: 18px;
@@ -316,15 +385,6 @@ permalink: ./pulse
   display: none;
 }
 
-/* ── TOC anchor headings (invisible, scroll targets only) ── */
-.toc-anchor {
-  position: absolute;
-  visibility: hidden;
-  pointer-events: none;
-  height: 0; margin: 0; padding: 0;
-  font-size: 0; line-height: 0;
-}
-
 /* ── Footer strip ─────────────────────────────── */
 #pulse-footer {
   text-align: center; padding: 40px;
@@ -365,6 +425,9 @@ permalink: ./pulse
 <!-- ══ CONTENT GRID ══════════════════════════════════ -->
 <main id="pulse-content">
 
+  <!-- TOC ANCHOR: hidden h2 feeds Chirpy's TOC sidebar -->
+  <h2 class="toc-anchor" aria-hidden="true">2026 — Latest</h2>
+
   <!-- SECTION: 2026 -->
   <div class="pulse-section-header">
     <span class="psh-label">2026 — Latest</span>
@@ -372,7 +435,6 @@ permalink: ./pulse
     <span class="psh-count">02 entries</span>
   </div>
 
-  <h2 class="toc-anchor" id="ietf-tls-13-hybrid-key-exchange-reaches-standardization">IETF TLS 1.3 Hybrid Key Exchange Reaches Standardization</h2>
   <article class="pulse-card featured" data-cat="tls" data-tags="tls hybrid pqc ietf key-exchange">
     <div class="card-header">
       <span class="featured-badge">Featured</span>
@@ -389,7 +451,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="fully-homomorphic-encryption-beyond-lattices">Fully Homomorphic Encryption — Beyond Lattices</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="pqc nist hqc kem code-based">
     <div class="card-header">
       <span class="card-tag">Post-Quantum</span>
@@ -405,6 +466,9 @@ permalink: ./pulse
     </div>
   </article>
 
+  <!-- TOC ANCHOR -->
+  <h2 class="toc-anchor" aria-hidden="true">2025</h2>
+
   <!-- SECTION: 2025 -->
   <div class="pulse-section-header">
     <span class="psh-label">2025</span>
@@ -412,7 +476,6 @@ permalink: ./pulse
     <span class="psh-count">11 entries</span>
   </div>
 
-  <h2 class="toc-anchor" id="nist-selects-hqc-as-fifth-pqc-algorithm">NIST Selects HQC as Fifth PQC Algorithm</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="nist hqc kem post-quantum standardization code-based">
     <div class="card-header">
       <span class="card-tag">Post-Quantum</span>
@@ -429,7 +492,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="openssh-100-ships-post-quantum-by-default">OpenSSH 10.0 Ships Post-Quantum by Default</h2>
   <article class="pulse-card" data-cat="tls" data-tags="openssh pqc hybrid kem mlkem x25519 ssh">
     <div class="card-header">
       <span class="card-tag">Protocol</span>
@@ -446,7 +508,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="integral-cryptanalysis-extended-from-f2-to-fq">Integral Cryptanalysis Extended from F₂ to Fq</h2>
   <article class="pulse-card" data-cat="theory" data-tags="integral cryptanalysis fq feistel hadesmimc aes">
     <div class="card-header">
       <span class="card-tag">Theory</span>
@@ -459,7 +520,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="fiat-shamir-with-aborts-cost-barrier-lowered">Fiat-Shamir with Aborts — Cost Barrier Lowered</h2>
   <article class="pulse-card" data-cat="theory" data-tags="lattice signatures fiat-shamir aborts waterloo efficiency">
     <div class="card-header">
       <span class="card-tag">Theory</span>
@@ -472,7 +532,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="one-shot-signatures-leave-the-oracle-world">One-Shot Signatures Leave the Oracle World</h2>
   <article class="pulse-card" data-cat="theory" data-tags="one-shot signatures quantum obfuscation crypto 2025">
     <div class="card-header">
       <span class="card-tag">Theory</span>
@@ -485,7 +544,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="zero-trust-pqc-convergence">Zero Trust + PQC Convergence</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="zero trust pqc cloudflare kem hybrid sase tunnel">
     <div class="card-header">
       <span class="card-tag">Post-Quantum</span>
@@ -498,7 +556,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="ncsc-uk-sets-phased-pqc-migration-timeline">NCSC (UK) Sets Phased PQC Migration Timeline</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="ncsc uk pqc migration timeline 2028 2031 2035">
     <div class="card-header">
       <span class="card-tag">Post-Quantum</span>
@@ -515,7 +572,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="quantum-chips-still-far-from-breaking-crypto">Quantum Chips Still Far from Breaking Crypto</h2>
   <article class="pulse-card" data-cat="quantum" data-tags="quantum willow ibm microsoft hype mosca nisq">
     <div class="card-header">
       <span class="card-tag">Quantum Hardware</span>
@@ -532,7 +588,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="china-broke-encryption-debunked">"China Broke Encryption" — Debunked</h2>
   <article class="pulse-card" data-cat="quantum" data-tags="china quantum hype encryption schneier debunked">
     <div class="card-header">
       <span class="card-tag">Quantum / Hype</span>
@@ -548,7 +603,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="apples-imessage-pq3-ground-up-quantum-safe-redesign">Apple's iMessage PQ3 — Ground-Up Quantum-Safe Redesign</h2>
   <article class="pulse-card" data-cat="tls" data-tags="apple imessage pq3 post-quantum hybrid key rotation">
     <div class="card-header">
       <span class="card-tag">Protocol</span>
@@ -564,7 +618,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="first-pqc-fips-standards-published-203-204-205">First PQC FIPS Standards Published: 203, 204, 205</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="fips nist ml-kem ml-dsa slh-dsa kyber dilithium sphincs post-quantum">
     <div class="card-header">
       <span class="card-tag">Standards</span>
@@ -580,6 +633,9 @@ permalink: ./pulse
     </div>
   </article>
 
+  <!-- TOC ANCHOR -->
+  <h2 class="toc-anchor" aria-hidden="true">2023 – 2024</h2>
+
   <!-- SECTION: 2023-2024 -->
   <div class="pulse-section-header">
     <span class="psh-label">2023 – 2024</span>
@@ -587,7 +643,6 @@ permalink: ./pulse
     <span class="psh-count">08 entries</span>
   </div>
 
-  <h2 class="toc-anchor" id="xz-utils-backdoor-cryptographic-trust-chain-attack">XZ Utils Backdoor — Cryptographic Trust Chain Attack</h2>
   <article class="pulse-card" data-cat="breach" data-tags="xz utils backdoor supply chain openssh sshd sigstore">
     <div class="card-header">
       <span class="card-tag">Supply Chain</span>
@@ -603,7 +658,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="passkeys-fido2webauthn-tip-from-niche-to-mainstream">Passkeys (FIDO2/WebAuthn) Tip from Niche to Mainstream</h2>
   <article class="pulse-card" data-cat="practice" data-tags="passkeys fido2 webauthn apple google microsoft phishing">
     <div class="card-header">
       <span class="card-tag">Practice</span>
@@ -619,7 +673,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="lastpass-breach-vault-encryption-nuances">LastPass Breach — Vault Encryption Nuances</h2>
   <article class="pulse-card" data-cat="breach" data-tags="lastpass breach pbkdf2 vault key derivation disclosure">
     <div class="card-header">
       <span class="card-tag">Breach</span>
@@ -635,7 +688,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="openssl-307-pre-announced-critical-lands-as-high">OpenSSL 3.0.7 — Pre-Announced Critical Lands as High</h2>
   <article class="pulse-card" data-cat="tls" data-tags="openssl cve buffer overflow x509 certificate parsing sbom">
     <div class="card-header">
       <span class="card-tag">Vulnerability</span>
@@ -651,7 +703,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="rainbow-signature-scheme-falls-weekend-on-a-laptop">Rainbow Signature Scheme Falls — "Weekend on a Laptop"</h2>
   <article class="pulse-card" data-cat="theory" data-tags="rainbow multivariate signature nist broken differential attack">
     <div class="card-header">
       <span class="card-tag">Cryptanalysis</span>
@@ -667,7 +718,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="sike-sidh-catastrophically-broken-in-hours">SIKE / SIDH Catastrophically Broken in Hours</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="sike sidh isogeny kem broken castryck decru classical attack">
     <div class="card-header">
       <span class="card-tag">Cryptanalysis</span>
@@ -683,7 +733,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="double-triple-encrypting-ransomware">Double &amp; Triple Encrypting Ransomware</h2>
   <article class="pulse-card" data-cat="breach" data-tags="ransomware double encryption aes chacha20 incident response">
     <div class="card-header">
       <span class="card-tag">Threat Intel</span>
@@ -699,7 +748,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="homomorphic-encryption-practical-caution">Homomorphic Encryption — Practical Caution</h2>
   <article class="pulse-card" data-cat="theory" data-tags="homomorphic fhe mpc tee privacy computing">
     <div class="card-header">
       <span class="card-tag">Theory / Practice</span>
@@ -715,6 +763,9 @@ permalink: ./pulse
     </div>
   </article>
 
+  <!-- TOC ANCHOR -->
+  <h2 class="toc-anchor" aria-hidden="true">Foundational Reads</h2>
+
   <!-- SECTION: Foundational -->
   <div class="pulse-section-header">
     <span class="psh-label">Foundational Reads</span>
@@ -722,7 +773,6 @@ permalink: ./pulse
     <span class="psh-count">07 entries</span>
   </div>
 
-  <h2 class="toc-anchor" id="nist-announces-first-four-pqc-algorithms">NIST Announces First Four PQC Algorithms</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="nist pqc four algorithms kyber dilithium falcon sphincs announcement">
     <div class="card-header">
       <span class="card-tag">Standards</span>
@@ -735,7 +785,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="tpm-fail-timing-attacks-recover-ecdsa-keys-from-certified-tpms">TPM-Fail — Timing Attacks Recover ECDSA Keys from Certified TPMs</h2>
   <article class="pulse-card" data-cat="breach" data-tags="tpm fail timing ecdsa side-channel intel stm fips attestation">
     <div class="card-header">
       <span class="card-tag">Side-Channel</span>
@@ -751,14 +800,13 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="nsa-warning-on-tls-break-inspect-middleboxes">NSA Warning on TLS "Break &amp; Inspect" Middleboxes</h2>
   <article class="pulse-card" data-cat="tls" data-tags="nsa tls interception break inspect https middlebox forward secrecy">
     <div class="card-header">
       <span class="card-tag">TLS / Policy</span>
       <span class="card-date">2019</span>
     </div>
     <h2 class="card-title">NSA Warning on TLS "Break &amp; Inspect" Middleboxes</h2>
-    <div class="card-body"><p>In a rare move, the NSA warned enterprises about TLS interception devices — middleboxes that centralize trust in a single point, undermine forward secrecy, and introduce protocol-downgrade risks. The guidance reframed blanket HTTPS inspection as a risk management problem, recommending tight scoping, careful auditing, and exploring whether endpoint behavioral detection can substitute for centralized decryption.</p></div>
+    <div class="card-body"><p>In a rare rare move, the NSA warned enterprises about TLS interception devices — middleboxes that centralize trust in a single point, undermine forward secrecy, and introduce protocol-downgrade risks. The guidance reframed blanket HTTPS inspection as a risk management problem, recommending tight scoping, careful auditing, and exploring whether endpoint behavioral detection can substitute for centralized decryption.</p></div>
     <div class="card-footer">
       <div class="card-links">
         <a class="card-link" href="https://www.schneier.com/crypto-gram/archives/2019/1215.html" target="_blank">Context</a>
@@ -767,7 +815,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="qkd-unhackable-crypto-hype-vs-reality">QKD "Unhackable" Crypto — Hype vs. Reality</h2>
   <article class="pulse-card" data-cat="quantum" data-tags="qkd quantum key distribution hype implementation security">
     <div class="card-header">
       <span class="card-tag">Quantum / Analysis</span>
@@ -783,7 +830,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="harvest-now-decrypt-later-why-acting-early-matters">"Harvest Now, Decrypt Later" — Why Acting Early Matters</h2>
   <article class="pulse-card" data-cat="pqc" data-tags="harvest now decrypt later forward secrecy long-lived data quantum risk">
     <div class="card-header">
       <span class="card-tag">Post-Quantum</span>
@@ -800,7 +846,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="rsa-240-factored-calibration-not-crisis">RSA-240 Factored — Calibration, Not Crisis</h2>
   <article class="pulse-card" data-cat="quantum" data-tags="rsa integer factoring nfs academic record key length">
     <div class="card-header">
       <span class="card-tag">Cryptanalysis</span>
@@ -816,7 +861,6 @@ permalink: ./pulse
     </div>
   </article>
 
-  <h2 class="toc-anchor" id="indistinguishability-obfuscation-io-breakthrough-with-caveats">Indistinguishability Obfuscation (iO) — Breakthrough with Caveats</h2>
   <article class="pulse-card" data-cat="theory" data-tags="io indistinguishability obfuscation lwe assumption layered crypto-complete">
     <div class="card-header">
       <span class="card-tag">Theory</span>
@@ -845,7 +889,6 @@ permalink: ./pulse
 <script>
 (function() {
   var cards   = document.querySelectorAll('#pulse-content .pulse-card');
-  var headers = document.querySelectorAll('#pulse-content .pulse-section-header');
   var btns    = document.querySelectorAll('.filter-btn');
   var search  = document.getElementById('search-input');
   var counter = document.getElementById('filter-count');
@@ -861,10 +904,11 @@ permalink: ./pulse
     var visible = 0;
 
     cards.forEach(function(card) {
-      var catMatch  = activeFilter === 'all' || card.dataset.cat === activeFilter;
-      var tagMatch  = !query || (card.dataset.tags || '').indexOf(query) !== -1 ||
-                      card.querySelector('.card-title').textContent.toLowerCase().indexOf(query) !== -1 ||
-                      card.querySelector('.card-body').textContent.toLowerCase().indexOf(query) !== -1;
+      var catMatch = activeFilter === 'all' || card.dataset.cat === activeFilter;
+      var tagMatch = !query ||
+        (card.dataset.tags || '').indexOf(query) !== -1 ||
+        card.querySelector('.card-title').textContent.toLowerCase().indexOf(query) !== -1 ||
+        card.querySelector('.card-body').textContent.toLowerCase().indexOf(query) !== -1;
       var show = catMatch && tagMatch;
       card.style.display = show ? '' : 'none';
       if (show) visible++;
@@ -873,12 +917,8 @@ permalink: ./pulse
     noRes.style.display = visible === 0 ? 'block' : 'none';
     updateCount(visible);
 
-    // Show/hide section headers: hide a header if all cards after it (before next header) are hidden
+    // Show/hide section headers when all their cards are filtered out
     var sectionEls = document.querySelectorAll('#pulse-content > *');
-    var currentHeader = null;
-    var hasVisible = false;
-
-    // Two-pass: collect sections
     var sections = [];
     var current = null;
     sectionEls.forEach(function(el) {
@@ -906,25 +946,28 @@ permalink: ./pulse
   });
 
   search.addEventListener('input', applyFilter);
-
-  // Initial count
   applyFilter();
 
-  // Intersection Observer for entry animations
+  // Scroll-in animation via IntersectionObserver
+  // CSS is now in the <style> block above (opacity:0/transform set on .pulse-card,
+  // cleared by .in-view) — no runtime style injection needed.
   if ('IntersectionObserver' in window) {
-    var style = document.createElement('style');
-    style.textContent = '.pulse-card { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; } .pulse-card.in-view { opacity: 1; transform: none; }';
-    document.head.appendChild(style);
-
     var io = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
-        if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
       });
     }, { threshold: 0.08 });
+
     cards.forEach(function(c, i) {
       c.style.transitionDelay = (i % 2 * 80) + 'ms';
       io.observe(c);
     });
+  } else {
+    // Fallback: show all cards immediately if IO not supported
+    cards.forEach(function(c) { c.classList.add('in-view'); });
   }
 })();
 </script>
