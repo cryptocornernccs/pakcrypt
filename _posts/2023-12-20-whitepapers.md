@@ -1,6 +1,6 @@
 ---
 title:  "Technical Articles"
-date:   2026-05-28 07:22:34 +0500
+date:   2026-06-15 07:22:34 +0500
 categories: [whitepapers]
 tags: [Whitepapers, Knowledge]
 author: team-pakcrypt
@@ -8,7 +8,7 @@ permalink: /wp/
 ---
 
 ### Uncharted Territory of PQC: Quantum Certificates:
-*2026-05-28*
+*2026-06-15*
 
 This blog explains where post-quantum certificate infrastructure actually stands today. The new operational dependencies — landmark distribution, DNS-based discovery, dual-certificate serving — that nobody fully solved before announcing a roadmap.
 [HTML]({{'/articles/pqcmct/' | relative_url}})
