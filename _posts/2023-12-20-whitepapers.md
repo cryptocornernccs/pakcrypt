@@ -7,6 +7,12 @@ author: team-pakcrypt
 permalink: /wp/
 ---
 
+### Uncharted Territory of PQC: Quantum Certificates:
+*2026-05-28*
+
+This blog explains where post-quantum certificate infrastructure actually stands today. The new operational dependencies — landmark distribution, DNS-based discovery, dual-certificate serving — that nobody fully solved before announcing a roadmap.
+[HTML]({{'/articles/pqcmct/' | relative_url}})
+
 ### Quantum Foundation - Understanding the Bell Inequality:
 *2026-05-28*
 
