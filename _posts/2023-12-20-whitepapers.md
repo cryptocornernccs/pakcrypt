@@ -1,6 +1,6 @@
 ---
 title:  "Technical Articles"
-date:   2026-06-15 07:22:34 +0500
+date:   2026-06-19 07:22:34 +0500
 categories: [whitepapers]
 tags: [Whitepapers, Knowledge]
 author: team-pakcrypt
@@ -14,7 +14,7 @@ Random number generators are routinely justified by an appeal to physical unpred
 clean pass through a statistical test battery. This justification is insufficient. Unpredictability is not a property of an output
 bit string; it is a property of an adversary’s uncertainty, and a cryptographic
 argument must lower-bound that uncertainty. 
- [PDF]({{site.url}}/{{site.baseurl}}/assets/whitepapers/mintro.pdf) [HTML]({{'/articles/mintro/' | relative_url}})
+ [PDF]({{site.url}}/{{site.baseurl}}/assets/whitepapers/mintro.pdf), [HTML]({{'/articles/mintro/' | relative_url}})
 
 
 ### Quantum Foundation - Understanding the Bell Inequality:
