@@ -7,11 +7,15 @@ author: team-pakcrypt
 permalink: /wp/
 ---
 
-### Uncharted Territory of PQC: Quantum Certificates:
-*2026-06-15*
+### Crypto-Grade Entropy Verification:
+*2026-06-19*
 
-This blog explains where post-quantum certificate infrastructure actually stands today. The new operational dependencies — landmark distribution, DNS-based discovery, dual-certificate serving — that nobody fully solved before announcing a roadmap.
-[HTML]({{'/articles/pqcmct/' | relative_url}})
+Random number generators are routinely justified by an appeal to physical unpredictability followed by a
+clean pass through a statistical test battery. This justification is insufficient. Unpredictability is not a property of an output
+bit string; it is a property of an adversary’s uncertainty, and a cryptographic
+argument must lower-bound that uncertainty. 
+ [PDF]({{site.url}}/{{site.baseurl}}/assets/whitepapers/mintro.pdf) [HTML]({{'/articles/mintro/' | relative_url}})
+
 
 ### Quantum Foundation - Understanding the Bell Inequality:
 *2026-05-28*
