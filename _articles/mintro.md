@@ -3,7 +3,6 @@ layout: post
 title: "No Entropy Without a Model"
 math: true
 ---
-
 <!-- MathJax Configuration for Jekyll/GitHub Pages -->
 <script>
 MathJax = {
