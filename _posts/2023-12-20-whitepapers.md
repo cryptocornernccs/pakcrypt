@@ -13,6 +13,12 @@ permalink: /wp/
 A quantum computer does not "try all (2^n) possibilities in parallel" in any meaningful sense. Although an (n)-qubit register is described by (2^n) complex amplitudes, measurement reveals only a single (n)-bit outcome sampled according to the Born rule, not the entire set of amplitudes. If quantum computation simply evaluated every possibility simultaneously and allowed all the results to be read out, it would efficiently solve problems believed to be intractable, such as NP-complete problems, which is not thought to be the case. Instead, a quantum computer evolves a single quantum state, and the power of quantum algorithms lies in carefully exploiting interference so that amplitudes associated with incorrect answers cancel while those of the desired answer reinforce one another, making a single measurement overwhelmingly likely to return the correct result. 
  [HTML]({{'/articles/qubits/' | relative_url}})
 
+### Field Guide to NIST Modes of Encryption:
+*2026-06-28*
+
+NIST modes of encryption provide a rigorously tested, globally recognized foundation for securing sensitive data, ensuring digital communications remain confidential and tamper-proof against evolving cyber threats. By establishing standardized protocols, these modes guarantee seamless interoperability across diverse systems while eliminating the critical vulnerabilities often introduced by custom, unverified cryptographic implementations. Furthermore, adopting these NIST-approved encryption modes is essential for meeting strict regulatory compliance and building consumer trust, making them an indispensable asset for any organization committed to robust cybersecurity. 
+ [HTML]({{'/articles/modes/' | relative_url}})
+
 ### Crypto-Grade Entropy Verification:
 *2026-06-19*
 
