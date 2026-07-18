@@ -12,26 +12,51 @@ permalink: /phi/
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
+  /* Dark-first palette, tuned to Chirpy's #1b1b1e background.
+     Background stays transparent so the page inherits the theme. */
   .phi-ledger {
-    --paper: #F7F7F5;
-    --ink: #191B1F;
-    --slate: #5A616C;
-    --hairline: #DDDEDA;
-    --accent: #2E45C8;
+    --ink: #E8E9EC;
+    --slate: #9CA3AF;
+    --hairline: rgba(255, 255, 255, 0.14);
+    --accent: #8B9BFF;
+    --accent-tint: rgba(139, 155, 255, 0.08);
+    --dot-fill: #1b1b1e;
     --max: 760px;
     font-family: "IBM Plex Sans", -apple-system, sans-serif;
-    background: var(--paper);
+    background: transparent;
     color: var(--ink);
     margin: 0 auto;
-    padding: 3.5rem 1.25rem 5rem;
+    padding: 1.5rem 0 4rem;
     max-width: var(--max);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Chirpy light mode (data-mode toggle), or OS light when no toggle set */
+  html[data-mode="light"] .phi-ledger {
+    --ink: #1E2128;
+    --slate: #5A616C;
+    --hairline: #DDDEDA;
+    --accent: #2E45C8;
+    --accent-tint: rgba(46, 69, 200, 0.06);
+    --dot-fill: #FFFFFF;
+  }
+  @media (prefers-color-scheme: light) {
+    html:not([data-mode]) .phi-ledger {
+      --ink: #1E2128;
+      --slate: #5A616C;
+      --hairline: #DDDEDA;
+      --accent: #2E45C8;
+      --accent-tint: rgba(46, 69, 200, 0.06);
+      --dot-fill: #FFFFFF;
+    }
+  }
+
   /* ---------- header ---------- */
   .phi-ledger header.phi-head {
-    margin-bottom: 4.5rem;
+    margin-bottom: 3.25rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--hairline);
   }
   .phi-ledger .phi-kicker {
     font-family: "IBM Plex Mono", monospace;
@@ -42,17 +67,8 @@ permalink: /phi/
     color: var(--slate);
     margin: 0 0 1rem;
   }
-  .phi-ledger h1.phi-title {
-    font-family: "Newsreader", Georgia, serif;
-    font-weight: 300;
-    font-size: clamp(2.6rem, 7vw, 4rem);
-    line-height: 1.05;
-    letter-spacing: -0.015em;
-    margin: 0 0 1.1rem;
-    border: none;
-    padding: 0;
-  }
   .phi-ledger .phi-sub {
+    margin-top: 0.75rem;
     font-size: 1rem;
     color: var(--slate);
     max-width: 34rem;
@@ -90,7 +106,7 @@ permalink: /phi/
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: var(--paper);
+    background: var(--dot-fill);
     border: 1.5px solid var(--slate);
     transition: border-color 160ms ease, background 160ms ease;
   }
@@ -153,7 +169,7 @@ permalink: /phi/
   .phi-ledger .phi-links a:focus-visible {
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(46, 69, 200, 0.05);
+    background: var(--accent-tint);
   }
   .phi-ledger .phi-links a:focus-visible {
     outline: 2px solid var(--accent);
@@ -185,7 +201,6 @@ permalink: /phi/
 
   <header class="phi-head">
     <p class="phi-kicker">Essays · Mind · Consciousness</p>
-    <h1 class="phi-title">Philosophy</h1>
     <p class="phi-sub">A running ledger of essays on mind, freedom, language, and the systems — human and artificial — that think. Newest first.</p>
   </header>
 
