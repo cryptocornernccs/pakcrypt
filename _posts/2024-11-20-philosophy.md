@@ -1,12 +1,16 @@
 ---
 title:  "Philosophy"
-date:   2026-04-17 07:22:34 +0500
+date:   2026-07-15 07:22:34 +0500
 categories: [Philosophy]
 tags: [Philosophy, Mind, Conciousness]
 author: team-pakcrypt
 permalink: /phi/
 ---
 
+### One Idea a day
+*2026-07-15*
+A Roman senator, a Baghdad theologian, a Prussian professor and a Google strategist never read a word of one another — yet each arrived at the same warning: a mind fed more than it can absorb becomes busy and empty. Two thousand years later, the laboratory agrees with all four. The diagnosis, the evidence, and the twenty-minute practice that answers it.
+[PDF]({{site.url}}/{{site.baseurl}}/assets/phi/O234D45AY.pdf), [HTML]({{'/articles/oneday/' | relative_url}})
 
 ### Governance of Common Knowledge in Distributed Systems
 *2026-04-17*
