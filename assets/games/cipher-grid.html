@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<title>Crack the Modulus — Cipher Grid</title>
+<style>
+  :root{
+    --bg-deep:      #0f151d;
+    --bg-vignette:  #0a0e13;
+    --panel:        #1b2734;
+    --panel-edge:   #253243;
+    --brass:        #c9a24b;
+    --brass-light:  #e8cf8c;
+    --brass-dim:    #8a713a;
+    --text-light:   #eef2f6;
+    --text-muted:   #8fa0b3;
+    --lcd-bg:       #0b1410;
+    --lcd-amber:    #f2b807;
+    --lcd-amber-dim:#7a5c0c;
+    --good:         #3ecf6a;
+    --good-bg:      #163122;
+    --bad:          #e5484d;
+    --bad-bg:       #34181a;
+    --radius-lg: 18px;
+    --radius-sm: 10px;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", "Courier New", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Helvetica, Arial, sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0; padding:0; min-height:100%;
+    background:
+      radial-gradient(circle at 20% 15%, rgba(201,162,75,0.06), transparent 40%),
+      radial-gradient(circle at 80% 85%, rgba(90,140,180,0.06), transparent 45%),
+      var(--bg-deep);
+    background-attachment: fixed;
+    color: var(--text-light);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* faint blueprint dot grid on the page backdrop */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image: radial-gradient(rgba(143,160,179,0.08) 1px, transparent 1px);
+    background-size: 26px 26px;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .page{
+    position:relative; z-index:1;
+    min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    padding: 28px 16px;
+  }
+
+  .chassis{
+    position:relative;
+    width: 100%;
+    max-width: 480px;
+    background: linear-gradient(180deg, var(--panel) 0%, #17212c 100%);
+    border: 1px solid var(--panel-edge);
+    border-radius: var(--radius-lg);
+    box-shadow:
+      0 30px 60px -20px rgba(0,0,0,0.6),
+      0 0 0 1px rgba(255,255,255,0.02) inset,
+      0 1px 0 rgba(255,255,255,0.04) inset;
+    padding: 22px 22px 26px;
+  }
+
+  /* corner rivets — the small hardware detail tying the "machine" theme together */
+  .rivet{
+    position:absolute; width:7px; height:7px; border-radius:50%;
+    background: radial-gradient(circle at 35% 30%, var(--brass-light), var(--brass-dim) 70%);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  }
+  .rivet.tl{ top:12px; left:12px; }
+  .rivet.tr{ top:12px; right:12px; }
+  .rivet.bl{ bottom:12px; left:12px; }
+  .rivet.br{ bottom:12px; right:12px; }
+
+  .eyebrow{
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: var(--brass);
+    text-transform: uppercase;
+    text-align:center;
+    margin: 4px 0 6px;
+  }
+
+  h1{
+    margin: 0 0 8px;
+    text-align:center;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-light);
+  }
+
+  .subtitle{
+    text-align:center;
+    color: var(--text-muted);
+    font-size: 13.5px;
+    line-height: 1.5;
+    max-width: 380px;
+    margin: 0 auto 18px;
+  }
+
+  .subtitle b{ color: var(--text-light); font-weight:600; }
+
+  /* ---- LCD readouts (signature element) ---- */
+  .readouts{
+    display:flex; gap:12px;
+    margin-bottom: 20px;
+  }
+
+  .lcd{
+    flex:1;
+    background: linear-gradient(180deg, var(--lcd-bg), #060a08);
+    border-radius: var(--radius-sm);
+    border: 1px solid #06120a;
+    box-shadow:
+      inset 0 2px 6px rgba(0,0,0,0.7),
+      0 1px 0 rgba(255,255,255,0.03);
+    padding: 9px 12px 10px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .lcd::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent 40%);
+    pointer-events:none;
+  }
+
+  .lcd-label{
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 2px;
+    color: var(--lcd-amber-dim);
+    text-transform:uppercase;
+  }
+
+  .lcd-value{
+    font-family: var(--mono);
+    font-size: 26px;
+    font-weight:700;
+    letter-spacing: 2px;
+    color: var(--lcd-amber);
+    text-shadow: 0 0 8px rgba(242,184,7,0.55), 0 0 2px rgba(242,184,7,0.8);
+    line-height:1.15;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+  }
+
+  .lcd-value.urgent{
+    color: var(--bad);
+    text-shadow: 0 0 8px rgba(229,72,77,0.6), 0 0 2px rgba(229,72,77,0.9);
+    animation: pulse 0.9s ease-in-out infinite;
+  }
+
+  @keyframes pulse{
+    0%,100%{ opacity:1; }
+    50%{ opacity:0.55; }
+  }
+
+  /* ---- grid ---- */
+  .grid-wrap{
+    display:flex; justify-content:center;
+    margin: 6px 0 14px;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 9px;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .cell{
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--mono);
+    font-size: clamp(20px, 6vw, 26px);
+    font-weight: 700;
+    color: #1c2430;
+    position:relative;
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,0.35),
+      inset 0 -3px 6px rgba(0,0,0,0.15),
+      0 3px 8px rgba(0,0,0,0.35);
+    user-select:none;
+    animation: pop-in 0.28s ease both;
+  }
+
+  @keyframes pop-in{
+    from{ transform: scale(0.85); opacity:0; }
+    to{ transform: scale(1); opacity:1; }
+  }
+
+  .cell.blank{
+    background: repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.35),
+      rgba(255,255,255,0.35) 6px,
+      rgba(255,255,255,0.2) 6px,
+      rgba(255,255,255,0.2) 12px
+    );
+  }
+
+  .cell input{
+    width: 100%; height:100%;
+    border: none; background: transparent;
+    text-align:center;
+    font-family: var(--mono);
+    font-size: clamp(20px, 6vw, 26px);
+    font-weight:700;
+    color:#1c2430;
+    border-radius: 12px;
+    -moz-appearance: textfield;
+  }
+  .cell input::-webkit-outer-spin-button,
+  .cell input::-webkit-inner-spin-button{
+    -webkit-appearance:none; margin:0;
+  }
+  .cell input:focus{
+    outline: 2px solid rgba(28,36,48,0.55);
+    outline-offset: -2px;
+  }
+  .cell input::placeholder{ color: rgba(28,36,48,0.4); }
+
+  .cell.correct{
+    background: var(--good-bg) !important;
+    color: var(--good);
+    box-shadow: 0 0 0 2px var(--good), 0 4px 14px rgba(62,207,106,0.3);
+    animation: correct-pop 0.4s ease;
+  }
+  .cell.correct .fill{ color: var(--good); }
+
+  @keyframes correct-pop{
+    0%{ transform: scale(1); }
+    40%{ transform: scale(1.08); }
+    100%{ transform: scale(1); }
+  }
+
+  .cell.wrong{
+    animation: shake 0.4s ease;
+  }
+  .cell.wrong-flash{
+    background: var(--bad-bg) !important;
+    box-shadow: 0 0 0 2px var(--bad);
+  }
+
+  .cell.revealed{
+    background: #241c0d !important;
+    color: var(--brass-light);
+    box-shadow: 0 0 0 2px var(--brass), 0 4px 14px rgba(201,162,75,0.25);
+    animation: correct-pop 0.4s ease;
+  }
+
+  @keyframes shake{
+    0%,100%{ transform: translateX(0); }
+    20%{ transform: translateX(-6px); }
+    40%{ transform: translateX(5px); }
+    60%{ transform: translateX(-4px); }
+    80%{ transform: translateX(3px); }
+  }
+
+  /* ---- status line ---- */
+  .status{
+    text-align:center;
+    min-height: 20px;
+    font-size: 13px;
+    font-weight:600;
+    margin-bottom: 16px;
+    transition: opacity 0.2s ease;
+  }
+  .status.good{ color: var(--good); }
+  .status.bad{ color: var(--bad); }
+  .status.neutral{ color: var(--text-muted); }
+
+  /* ---- reveal panel (shown when a round ends) ---- */
+  .reveal{
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+    margin: -6px 0 16px;
+    padding: 10px 14px 11px;
+    border: 1px dashed var(--brass-dim);
+    border-radius: var(--radius-sm);
+    background: rgba(201,162,75,0.07);
+    animation: pop-in 0.25s ease both;
+  }
+  .reveal[hidden]{ display:none; }
+  .reveal-label{
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 2px;
+    color: var(--brass);
+    text-transform: uppercase;
+  }
+  .reveal-value{
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--text-light);
+    font-weight: 600;
+  }
+  .reveal-value b{ color: var(--brass-light); font-size: 16px; }
+
+  /* ---- controls ---- */
+  .controls{
+    display:flex; gap:10px;
+  }
+
+  button{
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight:600;
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    cursor:pointer;
+    border: 1px solid transparent;
+    transition: transform 0.08s ease, filter 0.15s ease;
+  }
+  button:active{ transform: scale(0.97); }
+  button:disabled{ opacity: 0.4; cursor: not-allowed; filter: none !important; }
+
+  .btn-primary{
+    flex: 1.4;
+    background: linear-gradient(180deg, var(--brass-light), var(--brass));
+    color: #1c1404;
+    box-shadow: 0 3px 0 var(--brass-dim), 0 6px 14px rgba(201,162,75,0.25);
+  }
+  .btn-primary:hover{ filter: brightness(1.05); }
+
+  .btn-secondary{
+    flex: 1;
+    background: transparent;
+    border-color: var(--panel-edge);
+    color: var(--text-muted);
+  }
+  .btn-secondary:hover{ color: var(--text-light); border-color: var(--brass-dim); }
+
+  .footnote{
+    text-align:center;
+    margin-top: 16px;
+    font-size: 10.5px;
+    color: #4c5a6b;
+    font-family: var(--mono);
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 380px){
+    .chassis{ padding: 18px 14px 20px; }
+    h1{ font-size: 22px; }
+    .lcd-value{ font-size: 22px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="chassis">
+      <span class="rivet tl"></span>
+      <span class="rivet tr"></span>
+      <span class="rivet bl"></span>
+      <span class="rivet br"></span>
+
+      <div class="eyebrow">Cipher Machine · Mod-N Engine</div>
+      <h1>Crack the Modulus</h1>
+      <p class="subtitle">
+        Two rows or columns are fully shown. The third is their <b>sum, wrapped at a secret number N</b> — cell by cell.
+        One value is missing. Work out the pattern and fill it in before time runs out — N and the answer are revealed once the round ends.
+      </p>
+
+      <div class="readouts">
+        <div class="lcd">
+          <div class="lcd-label">Score</div>
+          <div class="lcd-value" id="scoreDisplay">0000</div>
+        </div>
+        <div class="lcd">
+          <div class="lcd-label">Time Left</div>
+          <div class="lcd-value" id="timerDisplay">20s</div>
+        </div>
+      </div>
+
+      <div class="grid-wrap">
+        <div class="grid" id="grid"></div>
+      </div>
+
+      <div class="status neutral" id="status">&nbsp;</div>
+
+      <div class="reveal" id="reveal" hidden>
+        <span class="reveal-label">Key Revealed</span>
+        <span class="reveal-value">N = <b id="revealN">–</b> &nbsp;·&nbsp; Missing value = <b id="revealVal">–</b></span>
+      </div>
+
+      <div class="controls">
+        <button class="btn-primary" id="checkBtn">Check Answer</button>
+        <button class="btn-secondary" id="resetBtn">New Puzzle</button>
+      </div>
+
+      <div class="footnote">SCORE PERSISTS ACROSS ROUNDS · RELOAD PAGE TO FULLY RESET</div>
+    </div>
+  </div>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---------- config ----------
+  const N_MIN = 2, N_MAX = 10;
+  const VAL_MIN = 1, VAL_MAX = 20;
+  const ROUND_SECONDS = 20;
+  const WRONG_FLASH_DELAY = 480;
+  const MAX_GEN_ATTEMPTS = 4000;
+
+  const YELLOW_SHADES = ["#fff3b0", "#ffe066", "#ffd43b", "#ffcc33", "#f6c945", "#fadb5f", "#ffdd55"];
+  const BLUE_SHADES   = ["#a5d8ff", "#74c0fc", "#4dabf7", "#91d5ff", "#82c9fc", "#bcdfff", "#63c2ff"];
+  const PALETTE = YELLOW_SHADES.concat(BLUE_SHADES);
+
+  // ---------- state ----------
+  let score = 0;
+  let timeLeft = ROUND_SECONDS;
+  let timerId = null;
+  let puzzle = null;        // current puzzle data
+  let roundActive = false;  // false once the round has ended (correct answer or timeout) — waits for "New Puzzle"
+
+  // ---------- dom refs ----------
+  const gridEl = document.getElementById("grid");
+  const scoreEl = document.getElementById("scoreDisplay");
+  const timerEl = document.getElementById("timerDisplay");
+  const statusEl = document.getElementById("status");
+  const revealEl = document.getElementById("reveal");
+  const revealNEl = document.getElementById("revealN");
+  const revealValEl = document.getElementById("revealVal");
+  const checkBtn = document.getElementById("checkBtn");
+  const resetBtn = document.getElementById("resetBtn");
+
+  // ---------- helpers ----------
+  function randInt(min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function shuffled(arr){
+    const a = arr.slice();
+    for(let i = a.length - 1; i > 0; i--){
+      const j = randInt(0, i);
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function randomColor(){
+    return PALETTE[randInt(0, PALETTE.length - 1)];
+  }
+
+  // ---------- puzzle generation ----------
+  // Builds a 3x3 grid where one row (or column) equals the element-wise
+  // (A[i] + B[i]) mod N of the other two rows (or columns). N (2..10) is
+  // never shown. Exactly one cell of the sum row/column is left blank.
+  // We only accept puzzles where N is the UNIQUE value in [2,10] consistent
+  // with the two visible sum cells, and where at least one visible/hidden
+  // pair actually wraps (so it's a genuine modular puzzle, not plain addition).
+  function generatePuzzle(){
+    for(let attempt = 0; attempt < MAX_GEN_ATTEMPTS; attempt++){
+      const orientation = Math.random() < 0.5 ? "rows" : "cols";
+      const N = randInt(N_MIN, N_MAX);
+      const A = [randInt(VAL_MIN, VAL_MAX), randInt(VAL_MIN, VAL_MAX), randInt(VAL_MIN, VAL_MAX)];
+      const B = [randInt(VAL_MIN, VAL_MAX), randInt(VAL_MIN, VAL_MAX), randInt(VAL_MIN, VAL_MAX)];
+      const S = A.map((a, i) => (a + B[i]) % N);
+
+      const hasWrap = A.some((a, i) => a + B[i] >= N);
+      if(!hasWrap) continue;
+
+      const hiddenLine = randInt(0, 2); // which of the 3 lines (0,1,2) is blank
+      const visibleLines = [0, 1, 2].filter(i => i !== hiddenLine);
+
+      // uniqueness check: does any other n in [2,10] also satisfy both visible equations?
+      const candidates = [];
+      for(let n = N_MIN; n <= N_MAX; n++){
+        let ok = true;
+        for(const idx of visibleLines){
+          if((A[idx] + B[idx]) % n !== S[idx]){ ok = false; break; }
+        }
+        if(ok) candidates.push(n);
+      }
+      if(candidates.length !== 1 || candidates[0] !== N) continue;
+
+      // decide which of the 3 rows/cols (0,1,2) plays which role, so the
+      // "sum" line isn't always in a fixed position.
+      const lineOrder = shuffled([0, 1, 2]);
+      const sumLine = lineOrder[0];
+      const addendLineA = lineOrder[1];
+      const addendLineB = lineOrder[2];
+
+      // build 3x3 value grid + which single cell is blank
+      const values = [[null,null,null],[null,null,null],[null,null,null]];
+      const blank = { row: 0, col: 0 };
+
+      for(let i = 0; i < 3; i++){
+        if(orientation === "cols"){
+          values[i][addendLineA] = A[i];
+          values[i][addendLineB] = B[i];
+          values[i][sumLine] = S[i];
+          if(i === hiddenLine){ blank.row = i; blank.col = sumLine; }
+        } else {
+          values[addendLineA][i] = A[i];
+          values[addendLineB][i] = B[i];
+          values[sumLine][i] = S[i];
+          if(i === hiddenLine){ blank.row = sumLine; blank.col = i; }
+        }
+      }
+
+      return { values, blank, correct: values[blank.row][blank.col], N, orientation };
+    }
+    return null; // astronomically unlikely
+  }
+
+  // ---------- rendering ----------
+  function renderGrid(p){
+    gridEl.innerHTML = "";
+    for(let r = 0; r < 3; r++){
+      for(let c = 0; c < 3; c++){
+        const cell = document.createElement("div");
+        cell.className = "cell";
+        cell.style.background = randomColor();
+
+        if(r === p.blank.row && c === p.blank.col){
+          cell.classList.add("blank");
+          cell.dataset.role = "blank";
+          const input = document.createElement("input");
+          input.type = "number";
+          input.inputMode = "numeric";
+          input.placeholder = "?";
+          input.setAttribute("aria-label", "Missing value");
+          input.addEventListener("keydown", (e) => {
+            if(e.key === "Enter") checkAnswer();
+          });
+          cell.appendChild(input);
+        } else {
+          cell.textContent = p.values[r][c];
+        }
+        gridEl.appendChild(cell);
+      }
+    }
+  }
+
+  function getBlankCellAndInput(){
+    const cell = gridEl.querySelector('.cell[data-role="blank"]');
+    const input = cell ? cell.querySelector("input") : null;
+    return { cell, input };
+  }
+
+  function setStatus(text, kind){
+    statusEl.textContent = text || "\u00A0";
+    statusEl.className = "status " + (kind || "neutral");
+  }
+
+  function showReveal(){
+    revealNEl.textContent = puzzle.N;
+    revealValEl.textContent = puzzle.correct;
+    revealEl.hidden = false;
+  }
+
+  function hideReveal(){
+    revealEl.hidden = true;
+  }
+
+  function updateScoreDisplay(){
+    scoreEl.textContent = String(score).padStart(4, "0");
+  }
+
+  function updateTimerDisplay(){
+    timerEl.textContent = timeLeft + "s";
+    timerEl.classList.toggle("urgent", timeLeft <= 5);
+  }
+
+  // ---------- timer ----------
+  function stopTimer(){
+    if(timerId !== null){
+      clearInterval(timerId);
+      timerId = null;
+    }
+  }
+
+  function startTimer(){
+    stopTimer();
+    timeLeft = ROUND_SECONDS;
+    updateTimerDisplay();
+    timerId = setInterval(() => {
+      timeLeft--;
+      updateTimerDisplay();
+      if(timeLeft <= 0){
+        endRound("revealed", "\u23F1 Time's up", "bad");
+      }
+    }, 1000);
+  }
+
+  // ---------- game flow ----------
+  function newPuzzle(){
+    roundActive = true;
+    puzzle = generatePuzzle();
+    renderGrid(puzzle);
+    setStatus("\u00A0", "neutral");
+    hideReveal();
+    checkBtn.disabled = false;
+    startTimer();
+    const { input } = getBlankCellAndInput();
+    if(input) input.focus();
+  }
+
+  // Ends the current round (correct answer or timeout): locks the board,
+  // reveals the secret N and the missing value, and waits for "New Puzzle".
+  function endRound(styleClass, statusText, statusKind){
+    stopTimer();
+    roundActive = false;
+    checkBtn.disabled = true;
+
+    const { cell, input } = getBlankCellAndInput();
+    if(cell){
+      cell.classList.remove("blank");
+      cell.classList.add(styleClass);
+      if(input){
+        if(styleClass === "revealed"){
+          input.remove();
+          cell.textContent = puzzle.correct;
+        } else {
+          input.disabled = true;
+        }
+      }
+    }
+
+    showReveal();
+    setStatus(statusText, statusKind);
+  }
+
+  function checkAnswer(){
+    if(!roundActive || !puzzle) return;
+    const { input } = getBlankCellAndInput();
+    if(!input) return;
+
+    const raw = input.value.trim();
+    if(raw === ""){
+      setStatus("Type a value first", "neutral");
+      return;
+    }
+
+    const guess = parseInt(raw, 10);
+
+    if(guess === puzzle.correct){
+      score += 10;
+      updateScoreDisplay();
+      endRound("correct", "Correct! +10 points", "good");
+    } else {
+      score = Math.max(0, score - 1);
+      updateScoreDisplay();
+      setStatus("Not quite — try again (\u22121)", "bad");
+      const { cell } = getBlankCellAndInput();
+      cell.classList.add("wrong", "wrong-flash");
+      setTimeout(() => {
+        cell.classList.remove("wrong", "wrong-flash");
+        input.value = "";
+        input.focus();
+      }, WRONG_FLASH_DELAY);
+    }
+  }
+
+  function resetGame(){
+    stopTimer();
+    setStatus("\u00A0", "neutral");
+    hideReveal();
+    newPuzzle();
+  }
+
+  // ---------- wire up ----------
+  checkBtn.addEventListener("click", checkAnswer);
+  resetBtn.addEventListener("click", resetGame);
+
+  updateScoreDisplay();
+  newPuzzle();
+})();
+</script>
+</body>
+</html>
