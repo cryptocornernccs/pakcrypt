@@ -1,6 +1,6 @@
 ---
 title:  "Technical Articles"
-date:   2026-06-29 07:22:34 +0500
+date:   2026-08-10 07:22:34 +0500
 categories: [whitepapers]
 tags: [Whitepapers, Knowledge]
 author: team-pakcrypt
@@ -205,6 +205,15 @@ permalink: /wp/
   </header>
 
   <ol class="wp-spine">
+    
+    <li class="wp-entry">
+      <span class="wp-date">2026 · 06 · 29</span>
+      <h3 class="wp-h">Keys from Orbit</h3>
+      <p class="wp-abstract">For 99 % of the world's traffic — banking, messaging, commerce, ordinary government business — post-quantum cryptography (PQC) is the correct and sufficient answer, and satellite QKD would be an absurd extravagance. For a small class of secrets that must survive 50-100 years, and for organisations unwilling to bet those secrets on a mathematical conjecture holding for half a century, a physics-based key has a property no algorithm can offer.</p>
+      <div class="wp-links">
+        <a href="{{'/articles/orbit/' | relative_url}}">Read online</a>
+      </div>
+    </li>
 
     <li class="wp-entry">
       <span class="wp-date">2026 · 06 · 29</span>
