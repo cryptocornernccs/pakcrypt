@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Nobody Needs to Hack Your Phone"
+math: true
 ---
 
 <style>
