@@ -724,7 +724,7 @@ math: true
 
 <div class="ckp-further">
   <div class="ckp-further-label">Further reading</div>
-  <p>A full technical treatment of this subject — the complete catalogue of signals a phone emits, the routes data takes off the device, an evaluated reference architecture for organisations, and the verification tests required before anyone claims it works — is published separately as <a href="/articles/android-tracking/">Bought, Not Hacked</a>. It is written for engineers and assumes familiarity with mobile platform internals.</p>
+  <p>A full technical treatment of this subject — the complete catalogue of signals a phone emits, the routes data takes off the device, an evaluated reference architecture for organisations, and the verification tests required before anyone claims it works — is published separately as <a href="/articles/tracking/">Bought, Not Hacked</a>. It is written for engineers and assumes familiarity with mobile platform internals.</p>
 </div>
 
 <div class="ckp-refs" id="references">
