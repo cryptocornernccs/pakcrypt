@@ -207,6 +207,15 @@ permalink: /wp/
   <ol class="wp-spine">
     
     <li class="wp-entry">
+      <span class="wp-date">2026 · 08 · 14</span>
+      <h3 class="wp-h">They Bought It, Not Hacked</h3>
+      <p class="wp-abstract"> An adversary no longer needs to compromise a phone to follow the person carrying it. The advertising industry already collects the data, and it is for sale. This is a technical reference architecture for reducing, enforcing and evidencing that exposure on managed Android devices — and an honest account of what such an architecture cannot do.</p>
+      <div class="wp-links">
+        <a href="{{'/articles/tracking/' | relative_url}}">Read Full</a>
+      </div>
+    </li>
+
+    <li class="wp-entry">
       <span class="wp-date">2026 · 06 · 29</span>
       <h3 class="wp-h">Keys from Orbit</h3>
       <p class="wp-abstract">For 99 % of the world's traffic — banking, messaging, commerce, ordinary government business — post-quantum cryptography (PQC) is the correct and sufficient answer, and satellite QKD would be an absurd extravagance. For a small class of secrets that must survive 50-100 years, and for organisations unwilling to bet those secrets on a mathematical conjecture holding for half a century, a physics-based key has a property no algorithm can offer.</p>
