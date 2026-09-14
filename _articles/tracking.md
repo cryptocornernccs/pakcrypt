@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Bought, Not Hacked"
+math: true
 ---
 
 <style>
