@@ -1,6 +1,6 @@
 ---
 title:  "Technical Articles"
-date:   2026-08-10 07:22:34 +0500
+date:   2026-09-14 07:22:34 +0500
 categories: [whitepapers]
 tags: [Whitepapers, Knowledge]
 author: team-pakcrypt
@@ -207,6 +207,16 @@ permalink: /wp/
   <ol class="wp-spine">
     
     <li class="wp-entry">
+      <span class="wp-date">2026 · 09 · 14</span>
+      <h3 class="wp-h">They Bought It, Not Hacked</h3>
+      <p class="wp-abstract"> AI can now write code at a rate that would have looked like science fiction in 2020. The obvious conclusion follows: if we can write software ten times faster, we should build ten times as much software. The obvious conclusion is wrong.</p>
+      <div class="wp-links">
+        <a href="{{'/articles/square/' | relative_url}}">Read Full</a>
+        <a href="{{site.url}}/{{site.baseurl}}/assets/whitepapers/square.pdf">PDF</a>
+      </div>
+    </li>
+
+      <li class="wp-entry">
       <span class="wp-date">2026 · 08 · 14</span>
       <h3 class="wp-h">They Bought It, Not Hacked</h3>
       <p class="wp-abstract"> An adversary no longer needs to compromise a phone to follow the person carrying it. The advertising industry already collects the data, and it is for sale. This is a technical reference architecture for reducing, enforcing and evidencing that exposure on managed Android devices — and an honest account of what such an architecture cannot do.</p>
